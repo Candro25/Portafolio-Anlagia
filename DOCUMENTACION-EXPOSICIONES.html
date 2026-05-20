@@ -1,0 +1,195 @@
+<!-- 
+DOCUMENTACIÓN DEL SISTEMA DE EXPOSICIONES INTERACTIVAS
+Anglaia - Experiencias de Diseño Profesionales
+
+Este archivo documenta cómo funciona el nuevo visor de exposiciones
+que reemplaza el sistema anterior con una experiencia MUCHO MÁS profesional
+-->
+
+# 🎨 SISTEMA DE EXPOSICIONES INTERACTIVAS
+
+## 📊 Arquitectura
+
+```
+otros.html (Sección Exposiciones)
+        ↓
+exposicion-viewer.html?id=1/2/3
+        ↓
+    ┌─────────────────────────┐
+    │   EXPOSICION VIEWER     │
+    ├─────────────────────────┤
+    │ Header (Controles)      │ ← Zoom, Fullscreen, Download
+    ├──────────┬──────────────┤
+    │ Sidebar  │ Visor PDF/   │
+    │ Información │ Galería   │ ← Canvas o Imágenes
+    │          │              │
+    ├──────────┴──────────────┤
+    │ Footer (Navegación)     │ ← Puntos, Página actual
+    └─────────────────────────┘
+```
+
+## 🎯 EXPOSICIONES CONFIGURADAS
+
+### 1️⃣ CALLE CÓRDOBA (ID: 1)
+- **Tipo**: PDF interactivo
+- **Ubicación**: Calle Córdoba
+- **Año**: 2024
+- **Archivo**: EXPOSICIONES/Calle Córdoba/exposición fotográfica .pdf
+- **Features**: Zoom, Fullscreen, Descarga
+- **URL**: exposicion-viewer.html?id=1
+
+### 2️⃣ ENTERGALACTIC (ID: 2)
+- **Tipo**: Galería de imágenes (4 imágenes)
+- **Ubicación**: Espacio Alternativo
+- **Año**: 2024
+- **Archivos**: Imágenes PNG en EXPOSICIONES/Entergalactic/
+- **Features**: Navegación suave, Swipe
+- **URL**: exposicion-viewer.html?id=2
+
+### 3️⃣ VESTIGIOS (ID: 3)
+- **Tipo**: PDF interactivo
+- **Ubicación**: Galería Principal
+- **Año**: 2024
+- **Archivo**: EXPOSICIONES/Vestigios_/exposición fotográfica .pdf
+- **Features**: Zoom, Fullscreen, Descarga
+- **URL**: exposicion-viewer.html?id=3
+
+## ⌨️ CONTROLES
+
+### Navegación
+| Control | Acción |
+|---------|--------|
+| ← → Flechas | Página anterior/siguiente |
+| Click botones | Navegar |
+| Swipe mouse | Navegar (izq/der) |
+| Touch swipe | Navegar en móvil |
+| Click puntos | Ir a página específica |
+
+### Zoom (PDF solo)
+| Control | Acción |
+|---------|--------|
+| + / - Botones | Aumentar/disminuir zoom |
+| Ctrl + Rueda | Zoom con teclado |
+| 0.5x - 3x | Rango de zoom |
+
+### Utilidades
+| Control | Acción |
+|---------|--------|
+| Fullscreen | Pantalla completa |
+| Escape | Salir fullscreen |
+| Download | Descargar PDF/Imagen |
+| ← Volver | Regresar a otros.html |
+
+## 🎨 DISEÑO VISUAL
+
+### Paleta de Colores (Consistente con Anglaia)
+```css
+--color-dark: #0a0a0a          /* Fondo principal */
+--color-light: #f5f0e8         /* Fondo sidebar */
+--color-accent: #8b7d6b        /* Acentos */
+--color-gold: #c9b49e          /* Highlights */
+```
+
+### Tipografía
+- **Títulos**: Cormorant Garamond (serif, elegante)
+- **Cuerpo**: Montserrat (sans-serif, moderno)
+
+### Animaciones
+- ✨ Carga suave de imágenes/PDFs
+- 🔄 Transiciones fluidas de navegación
+- 📊 Barra de progreso animada
+- 🌐 Hover effects profesionales
+
+## 🔧 EXTENSIÓN: AGREGAR NUEVA EXPOSICIÓN
+
+Para agregar una nueva exposición (ej. ID 4):
+
+### 1. Actualizar exposicion-viewer.js
+```javascript
+const EXPOSICIONES = {
+  // ... anterior ...
+  4: {
+    title: 'Nueva Exposición',
+    subtitle: 'Tipo de exposición',
+    location: 'Ubicación',
+    year: '2024',
+    description: 'Descripción...',
+    images: ['ruta/imagen1.png', 'ruta/imagen2.png'],
+    type: 'gallery' // o 'pdf'
+  }
+};
+```
+
+### 2. Agregar link en otros.html
+```html
+<a href="exposicion-viewer.html?id=4">Ver experiencia</a>
+```
+
+### 3. Agregar archivos de medios
+```
+EXPOSICIONES/Nueva Exposición/
+├── imagen1.png
+├── imagen2.png
+└── ...
+```
+
+## 📱 RESPONSIVE
+
+- **Desktop**: Layout 2 columnas, full features
+- **Tablet**: Sidebar ocultado, visor expandido
+- **Mobile**: Versión compacta, botones grandes
+
+## 🚀 VENTAJAS SOBRE SISTEMA ANTERIOR
+
+| Aspecto | Anterior | Nuevo |
+|--------|----------|-------|
+| **Flexibilidad** | Solo PDF | PDF + Galerías |
+| **Interactividad** | Básica | Avanzada (zoom, swipe) |
+| **Información** | Mínima | Panel detallado |
+| **Diseño** | Simple | Profesional |
+| **Responsive** | No | Sí |
+| **Personalización** | Baja | Alta |
+| **Marca** | Genérico | Coherente con Anglaia |
+
+## 📊 ESTADÍSTICAS TÉCNICAS
+
+- **Librerías**: PDF.js 3.11.174 (CDN)
+- **Canvas API**: Para renderización de PDFs
+- **CSS Grid**: Layout moderno
+- **CSS Backdrop Filter**: Blur effects profesionales
+- **Animaciones**: CSS3 + requestAnimationFrame
+- **Peso**: ~150KB + PDFs/Imágenes
+
+## 🔒 CONSIDERACIONES
+
+1. PDFs deben estar en rutas correctas
+2. Imágenes deben ser legibles y de calidad
+3. PDF.js requiere CORS correcto (usando CDN)
+4. Nombres de archivo sin espacios en código (pero soportados)
+
+## ✅ CHECKLIST ANTES DE PUBLICAR
+
+- [ ] Verificar que todos los PDFs existan
+- [ ] Verificar rutas de imágenes
+- [ ] Probar navegación en desktop
+- [ ] Probar navegación en móvil
+- [ ] Probar zoom (PDF)
+- [ ] Probar fullscreen
+- [ ] Probar descarga
+- [ ] Verificar links en otros.html
+- [ ] Verificar información en sidebar
+- [ ] Probar velocidad de carga
+
+## 📝 MANTENIMIENTO
+
+Para mantener el sistema:
+1. Agregar nuevas exposiciones en EXPOSICIONES{}
+2. Agregar nuevas imágenes/PDFs en carpetas
+3. Actualizar enlaces en otros.html
+4. Verificar que las rutas sean correctas
+
+---
+
+**Creado**: Mayo 2024
+**Versión**: 1.0
+**Autor**: Anglaia Design Studio

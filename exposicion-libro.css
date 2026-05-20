@@ -1,0 +1,172 @@
+/* =======================================================
+   EXPOSICION LIBRO - AJUSTE DE UNIÓN 3D Y DISEÑO EDITORIAL
+   ======================================================= */
+:root {
+  --color-bg: #070707;
+  --color-book-bg: #0d0d0d;
+  --color-gold: #c9b49e;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: var(--color-bg);
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* CARGA */
+.loading-screen { position: fixed; inset: 0; background: var(--color-bg); display: flex; align-items: center; justify-content: center; z-index: 2000; transition: opacity 0.5s ease; }
+.loading-screen.hidden { opacity: 0; pointer-events: none; }
+.loading-content { text-align: center; color: white; }
+.loading-logo { font-size: 2.2rem; font-weight: 400; color: var(--color-gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.1em; }
+.loading-subtitle { opacity: 0.6; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 300; }
+
+/* ENCABEZADO FLOTANTE */
+.book-header { 
+  position: fixed; top: 0; left: 0; right: 0; 
+  padding: 1.5rem 2.5rem; 
+  display: flex; justify-content: space-between; 
+  z-index: 1000; pointer-events: none; 
+}
+.book-back-btn, .book-action-btn {
+  pointer-events: auto;
+  background: rgba(13, 13, 13, 0.65); border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e5e5; border-radius: 50px; cursor: pointer;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+.book-back-btn { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.4rem; text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.05em; }
+.book-back-btn:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
+.book-back-btn svg { width: 16px; height: 16px; }
+.book-header-actions { display: flex; gap: 0.8rem; }
+.book-action-btn { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.book-action-btn:hover { background: var(--color-gold); color: #000000; border-color: var(--color-gold); }
+.book-action-btn svg { width: 18px; height: 18px; }
+
+/* REGIONES DE CLIC AVANZADAS */
+.nav-zone {
+  position: fixed; top: 0; bottom: 0; width: 15vw;
+  background: transparent; border: none; z-index: 800; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0); transition: var(--transition-smooth);
+}
+.nav-zone svg { width: 36px; height: 36px; opacity: 0; transform: scale(0.8); transition: var(--transition-smooth); }
+.nav-zone-left { left: 0; }
+.nav-zone-right { right: 0; }
+.nav-zone:hover:not(:disabled) { color: rgba(255, 255, 255, 0.65); }
+.nav-zone-left:hover:not(:disabled) { background: linear-gradient(to right, rgba(0,0,0,0.4), transparent); }
+.nav-zone-right:hover:not(:disabled) { background: linear-gradient(to left, rgba(0,0,0,0.4), transparent); }
+.nav-zone:hover:not(:disabled) svg { opacity: 1; transform: scale(1); }
+.nav-zone:disabled { display: none; }
+
+/* CONTENEDOR PRINCIPAL DEL LIBRO (Bloqueo de proporción de aspecto continuo) */
+.book-main { 
+  position: relative; width: 100vw; height: 100vh; 
+  display: flex; align-items: center; justify-content: center;
+}
+.book {
+  position: relative;
+  width: 90vw; height: 82vh;
+  max-width: 1500px; max-height: 900px;
+  display: flex; perspective: 2500px;
+  background: var(--color-book-bg);
+}
+
+/* Sombra e iluminación realista de pliegue */
+.book::after {
+  content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 50px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.45) 52%, rgba(0,0,0,0) 100%);
+  pointer-events: none; z-index: 500;
+}
+
+.book-page {
+  width: 50%; height: 100%; position: absolute; top: 0; overflow: hidden; background: var(--color-book-bg);
+}
+.fixed-left { left: 0; transform-origin: right center; }
+.fixed-right { right: 0; transform-origin: left center; }
+
+/* HOJA MÓVIL 3D */
+.flip-page {
+  width: 50%; height: 100%; position: absolute; top: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 400; display: none;
+}
+.flip-page.right-side { right: 0; transform-origin: left center; transform: rotateY(0deg); }
+.flip-page.right-side.flipping { transform: rotateY(-180deg); }
+.flip-page.left-side { left: 0; transform-origin: right center; transform: rotateY(0deg); }
+.flip-page.left-side.flipping { transform: rotateY(180deg); }
+
+.flip-face {
+  position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; background: var(--color-book-bg); overflow: hidden;
+}
+.flip-front { transform: rotateY(0deg); }
+.flip-back { transform: rotateY(180deg); }
+
+/* AJUSTE MAGNÉTICO PARA RECORTE CERO (Elimina el vacío del medio) */
+.book-canvas {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: var(--color-book-bg);
+}
+
+/* Forzar unión en el lomo */
+#canvasLeft { object-position: right center; }
+#canvasRight { object-position: left center; }
+
+/* MAQUETACIÓN EDITORIAL PARA PORTADA (Página Izquierda Inicial) */
+.cover-editorial-layout {
+  position: absolute; inset: 0;
+  background: #0f0f0f;
+  padding: 4rem 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+  color: #e0e0e0; z-index: 10;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.cover-editorial-layout.visible { opacity: 1; pointer-events: auto; }
+
+.cover-editorial-layout h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem; font-weight: 400; line-height: 1.1;
+  color: #ffffff; letter-spacing: -0.01em; margin-bottom: 0.5rem;
+}
+.cover-editorial-layout h2 {
+  font-size: 0.9rem; font-weight: 400; text-transform: uppercase;
+  color: var(--color-gold); letter-spacing: 0.15em; margin-bottom: 2rem;
+}
+.editorial-line {
+  width: 60px; height: 1px; background: var(--color-gold); margin-bottom: 2rem;
+}
+.cover-editorial-layout p {
+  font-size: 0.95rem; font-weight: 300; line-height: 1.8;
+  color: #b0b0b0; max-width: 90%; text-align: justify; margin-bottom: 3rem;
+}
+.editorial-meta {
+  display: flex; gap: 2.5rem; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.08em; color: #777777;
+}
+
+/* PIE DE PÁGINA FLOTANTE */
+.book-footer {
+  position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+  background: rgba(13, 13, 13, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  padding: 0.7rem 1.6rem; border-radius: 40px;
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  z-index: 1000; border: 1px solid rgba(255,255,255,0.06);
+}
+.book-page-info { color: #ffffff; font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 400; }
+.book-page-dots { display: flex; gap: 7px; }
+.book-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.18); transition: all 0.25s ease; }
+.book-dot.active { background: var(--color-gold); transform: scale(1.4); }
+
+@media (max-width: 900px) {
+  .book { width: 95vw; height: 70vh; }
+  .cover-editorial-layout { padding: 2rem; }
+  .cover-editorial-layout h1 { font-size: 2.2rem; }
+}

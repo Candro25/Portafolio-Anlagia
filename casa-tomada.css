@@ -1,0 +1,512 @@
+/* ══════════════════════════════════════
+   CASA TOMADA — MURAL INTERACTIVO FINAL
+══════════════════════════════════════ */
+
+body {
+  background-color: #0a0a0a;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ── LOADER INTERACTIVO ── */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+  overflow: hidden;
+}
+
+.loader-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Canvas con hilos animados del loader */
+.loader-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* Contenedor de contenido del loader */
+.loader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  max-width: 500px;
+  text-align: center;
+  animation: loaderContentEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes loaderContentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo imagen del loader */
+.loader-logo-img {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: logoPulse 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  filter: drop-shadow(0 8px 16px rgba(180, 30, 30, 0.3));
+}
+
+.loader-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes logoPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotateZ(-15deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateZ(0deg);
+    animation: logoFloat 3s ease-in-out 1.5s infinite;
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.08);
+  }
+}
+
+/* Título del loader */
+.loader-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: rgba(180, 30, 30, 0.8);
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  text-transform: uppercase;
+}
+
+/* Subtítulo del loader */
+.loader-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #f5f0e8;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Barra de progreso del loader */
+.loader-progress-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(180, 30, 30, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  box-shadow: 0 0 12px rgba(180, 30, 30, 0.2);
+}
+
+.loader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #b41e1e 20%,
+    #b41e1e 80%,
+    transparent 100%);
+  animation: progressAdvance 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  box-shadow: 0 0 16px rgba(180, 30, 30, 0.8);
+}
+
+@keyframes progressAdvance {
+  0% {
+    width: 0%;
+    transform: translateX(-100%);
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+/* Hilos animados del loader */
+.loader-threads {
+  display: flex;
+  gap: 0.8rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.loader-threads span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(180, 30, 30, 0.5);
+  animation: threadFloat 1.4s ease-in-out infinite;
+}
+
+.loader-threads span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-threads span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes threadFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+    background: rgba(180, 30, 30, 0.5);
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+    background: #b41e1e;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón Explorar Casa */
+.loader-btn {
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid #b41e1e;
+  color: #b41e1e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+.loader-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #b41e1e;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: -1;
+}
+
+.loader-btn:hover {
+  color: #0a0a0a;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(180, 30, 30, 0.4);
+}
+
+.loader-btn:hover::before {
+  transform: translateY(0);
+}
+
+.loader-btn.active {
+  animation: btnReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes btnReveal {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Animaciones de revelación interactiva */
+@keyframes revealAnimation {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    opacity: 0;
+  }
+}
+
+@keyframes loaderExit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.mural-canvas {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0; pointer-events: none;
+  background-color: #0a0a0a;
+}
+
+/* ── HEADER DE NAVEGACIÓN ── */
+.viewer-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 1.5rem 2rem; display: flex;
+  justify-content: space-between; align-items: center;
+  z-index: 100; pointer-events: none; 
+}
+.viewer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.back-btn { display: flex; align-items: center; gap: 0.5rem; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; pointer-events: auto; transition: opacity 0.3s; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.back-btn svg { width: 18px; height: 18px; }
+.back-btn:hover { opacity: 0.6; }
+
+/* ── CONTENEDOR PRINCIPAL ── */
+.mural-container {
+  position: relative;
+  width: 100%;
+  height: 480vh; 
+  overflow: hidden;
+}
+
+.mural-content {
+  position: relative; z-index: 10; width: 100%; height: 100%; max-width: 1200px; margin: 0 auto;
+}
+
+/* ── MAQUETACIÓN BASE ── */
+.mural-item {
+  position: absolute;
+  width: 280px; height: 400px; 
+  background: transparent; padding: 0; 
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6); cursor: pointer;
+  
+  transform: translateY(calc(var(--scroll-offset, 0px) * 0.6)) rotate(var(--rot, 0deg));
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  will-change: transform;
+}
+.mural-item img { width: 100%; height: 100%; object-fit: cover; border: none; }
+
+/* Alfiler superior */
+.pin {
+  position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px; background: radial-gradient(circle at 30% 30%, #e0e0e0, #444);
+  border-radius: 50%; box-shadow: 2px 5px 6px rgba(0,0,0,0.5), inset -2px -2px 4px rgba(0,0,0,0.6); z-index: 20; 
+}
+.pin::after {
+  content: ''; position: absolute; top: 12px; left: 6px; width: 2px; height: 15px;
+  background: rgba(0,0,0,0.3); transform: rotate(20deg); z-index: -1; filter: blur(1px);
+}
+
+/* ══════════════════════════════════════
+   COORDENADAS ZIG-ZAG (1 a 10)
+   ══════════════════════════════════════ */
+
+/* 📌 Item 1 (Izquierda) - LA CAJA QUE SE ABRE */
+.item-1 { top: 2%; left: 8%; --rot: -4deg; width: 280px; height: 280px; padding: 0; background: none; box-shadow: none; perspective: 1500px; }
+.item-1 .pin { top: 10px; }
+
+/* 📌 Item 2 (Derecha) - TEXTIL 1 */
+.item-2 { top: 12%; right: 8%; --rot: 5deg; }
+
+/* 📌 Item 3 (Izquierda) - LEPORELLO */
+.item-3 { top: 22%; left: 10%; --rot: -2deg; z-index: 15; } 
+
+/* 📌 Item 4 (Derecha) - GIF ANIMADO (POLAROID CUADRADA) */
+.item-4 { top: 32%; right: 10%; --rot: 4deg; height: 280px; padding: 12px; }
+
+/* 📌 Item 5 (Izquierda) - STICKERS CAROUSEL (POLAROID CUADRADA) */
+.item-5 { top: 42%; left: 8%; --rot: -6deg; height: 280px; padding: 12px; }
+
+/* 📌 Item 6 (Derecha) - TEXTIL 2 */
+.item-6 { top: 52%; right: 12%; --rot: 3deg; }
+
+/* 📌 Item 7 (Izquierda) */
+.item-7 { top: 62%; left: 10%; --rot: -4deg; }
+
+/* 📌 Item 8 (Derecha) */
+.item-8 { top: 72%; right: 6%; --rot: 7deg; }
+
+/* 📌 Item 9 (Izquierda) */
+.item-9 { top: 82%; left: 8%; --rot: -3deg; z-index: 15; }
+
+/* 📌 Item 10 (Derecha) */
+.item-10 { top: 92%; right: 10%; --rot: 5deg; }
+
+
+/* ── CONFIGURACIÓN CAJA INTERACTIVA (ITEM 1) ── */
+.pin-hinge-container { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6)); }
+.pin-inside-content { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; box-sizing: border-box; }
+.pin-cover-layer { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 5; overflow: hidden; transform-origin: left center; transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); border: none; box-sizing: border-box; backface-visibility: hidden; }
+.pin-cover-layer img { width: 100%; height: 100%; object-fit: cover; }
+.pin-shine { position: absolute; inset: -50%; background: linear-gradient(135deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 70%); transition: transform 0.6s; transform: translateX(-100%) translateY(-100%); }
+.mural-item.item-1:hover .pin-shine { transform: translateX(100%) translateY(100%); }
+.mural-item.item-1:hover .pin-cover-layer { transform: rotateY(-130deg); filter: drop-shadow(15px 10px 25px rgba(0,0,0,0.5)); }
+
+
+/* ── CAROUSEL DE STICKERS (ITEM 5) ── */
+.sticker-carousel {
+  position: relative; width: 100%; height: 100%;
+  background: transparent; display: flex; align-items: center; justify-content: center;
+}
+.sticker-img {
+  position: absolute; max-width: 100%; max-height: 100%;
+  width: auto; height: auto; object-fit: contain; opacity: 0; transform: scale(0.95);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; pointer-events: none;
+}
+.sticker-img.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+
+
+/* ── BLOQUES DE TEXTO NARRATIVOS (ALTERNOS) ── */
+.mural-text { 
+  position: absolute; width: 250px; background: rgba(15, 15, 15, 0.75); backdrop-filter: blur(8px); 
+  padding: 1.2rem; border-left: 2px solid #b41e1e; box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+  z-index: 30; pointer-events: none; 
+  transform: translateY(calc(var(--scroll-offset, 0px) * 0.6)); 
+  will-change: transform; transition: transform 0.4s ease; 
+}
+.mural-text h3 { font-family: 'Cormorant Garamond', serif; color: #f5f0e8; font-size: 1.15rem; margin: 0 0 0.5rem 0; letter-spacing: 0.05em; text-transform: uppercase; }
+.mural-text p { font-family: 'Montserrat', sans-serif; color: #bfae96; font-size: 0.75rem; line-height: 1.5; margin: 0; }
+
+.text-for-1 { top: 3.5%; left: 36%; }
+.text-for-2 { top: 13.5%; right: 38%; border-left: none; border-right: 2px solid #b41e1e; text-align: right; }
+.text-for-3 { top: 23.5%; left: 38%; }
+.text-for-4 { top: 33.5%; right: 36%; border-left: none; border-right: 2px solid #b41e1e; text-align: right; }
+.text-for-5 { top: 43.5%; left: 37%; }
+.text-for-6 { top: 53.5%; right: 39%; border-left: none; border-right: 2px solid #b41e1e; text-align: right; }
+
+
+/* ── HILOS ROJOS CONECTORES ── */
+.mural-thread-connector { 
+  position: absolute; overflow: visible; z-index: 15; pointer-events: none; 
+  transform: translateY(calc(var(--scroll-offset, 0px) * 0.6)); 
+  will-change: transform; transition: transform 0.4s ease; 
+}
+.mural-thread-connector path { fill: none; stroke: rgba(180, 30, 30, 0.85); stroke-width: 1.5; filter: drop-shadow(1px 3px 4px rgba(0,0,0,0.7)); }
+
+.conn-1 { top: 4%; left: 20%; width: 180px; height: 100px; }
+.conn-2 { top: 14%; right: 23%; width: 160px; height: 100px; }
+.conn-3 { top: 24%; left: 22%; width: 160px; height: 100px; }
+.conn-4 { top: 34%; right: 21%; width: 170px; height: 100px; }
+.conn-5 { top: 44%; left: 21%; width: 165px; height: 100px; }
+.conn-6 { top: 54%; right: 24%; width: 155px; height: 100px; }
+
+
+/* ── EFECTOS HOVER ── */
+.mural-item:hover { 
+  transform: translateY(calc(var(--scroll-offset, 0px) * 0.6)) scale(1.06) rotate(0deg) !important; 
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9); z-index: 50; 
+}
+
+
+/* ── NUEVO OVERLAY PARA EL GIF (REEMPLAZO DE LEPORELLO) ── */
+.gif-overlay {
+  position: fixed; inset: 0; 
+  background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(6px);
+  z-index: 1000; 
+  display: flex; justify-content: center; align-items: center; 
+  opacity: 0; pointer-events: none; 
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gif-overlay.open { opacity: 1; pointer-events: auto; }
+.gif-close {
+  position: absolute; top: 2rem; right: 3rem; 
+  background: none; border: none; color: #fff; 
+  font-size: 2.2rem; cursor: pointer; 
+  transition: transform 0.3s, color 0.3s; z-index: 1010;
+}
+.gif-close:hover { transform: scale(1.2) rotate(90deg); color: #b41e1e; }
+.gif-content {
+  transform: scale(0.9); opacity: 0; 
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s; 
+  max-width: 70vw; max-height: 75vh; 
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  border: none; border-radius: 4px; 
+  background: transparent;
+}
+.gif-overlay.open .gif-content { transform: scale(1); opacity: 1; }
+.gif-content img { display: block; max-width: 100%; max-height: 75vh; object-fit: contain; }
+
+
+/* ── RESPONSIVIDAD ── */
+@media (max-width: 1024px) {
+  .mural-text { width: 180px; padding: 0.8rem; }
+  .mural-text p { font-size: 0.7rem; }
+  .mural-thread-connector { display: none; }
+}
+
+@media (max-width: 768px) {
+  .mural-container { height: 550vh; }
+  .mural-item { width: 200px; height: 300px; }
+  
+  .item-1, .item-4, .item-5 { height: 200px; width: 200px; } 
+
+  .item-1  { left: 5%;  top: 3%;  }
+  .item-2  { right: 5%; top: 13%; }
+  .item-3  { left: 15%; top: 23%; }
+  .item-4  { right: 8%; top: 33%; }
+  .item-5  { left: 8%;  top: 43%; }
+  .item-6  { right: 5%; top: 53%; }
+  .item-7  { left: 12%; top: 63%; }
+  .item-8  { right: 10%; top: 73%; }
+  .item-9  { left: 5%;  top: 83%; }
+  .item-10 { right: 5%; top: 93%; }
+  
+  .mural-text { position: relative; top: auto !important; left: auto !important; right: auto !important; margin: 10px auto; width: 85%; transform: none !important; text-align: left !important; border-left: 2px solid #b41e1e !important; border-right: none !important; }
+  
+  .gif-close { top: 1rem; right: 1.5rem; }
+}

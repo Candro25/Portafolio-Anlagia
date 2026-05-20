@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Anglaia</title>
+    <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+</head>
+<body>
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-spirit">
+   <video class="loader-spirit-vid" autoplay loop muted playsinline>
+  <source src="criatura_transparent.webm" type="video/webm">
+  <source src="videos/criatura_transparent.webm" type="video/mp4"> <!-- fallback por si acaso -->
+</video>
+  </div>
+
+  <!-- Barra de carga -->
+  <div class="loader-bar-wrap">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+</div>
+
+
+<!-- Navbar -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+
+    <!-- LOGO izquierda -->
+    <a href="#hero" class="nav-logo-link" aria-label="Inicio">
+  <img src="LOGO_ANGLAIA.png" alt="Logo Anglaia" class="logo-img">
+</a>
+
+<ul class="nav-list" id="navList">
+  <li class="nav-item">
+    <a href="#about" class="nav-link">
+      <span class="link-inner">Sobre Mí</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="#portafolio" class="nav-link">
+      <span class="link-inner">Creaciones</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+  
+  <li class="nav-item">
+    <a href="#conectemos" class="nav-link">
+      <span class="link-inner">Conectemos</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+</ul>
+
+    <div class="nav-highlight" id="highlight"></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+  <!-- Video fondo completo -->
+<div class="hero-video-bg">
+  <iframe 
+    id="heroVideo" 
+    class="hero-video" 
+    src="https://www.youtube.com/embed/Xlgp_MPYEGc?autoplay=1&mute=1&loop=1&playlist=Xlgp_MPYEGc&controls=0&rel=0&playsinline=1&modestbranding=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
+  <div class="hero-veil"></div>
+</div>
+
+  <!-- Contenido -->
+  <div class="hero-content">
+    <div class="hero-text-block">
+      <p class="hero-eyebrow">Portafolio creativo</p>
+      <h1 class="hero-title">
+        <span class="hero-line"><span class="hero-line-inner">Transformación</span></span>
+        <span class="hero-line"><span class="hero-line-inner color-accent">Y Conexión</span></span>
+        <!-- <span class="hero-line"><span class="hero-line-inner">Conexión</span></span> -->
+      </h1>
+      <a href="#portafolio" class="hero-cta-btn">
+        Ver trabajo <span class="hero-cta-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Control de audio -->
+  <button class="audio-btn" id="audioBtn" aria-label="Activar sonido">
+    <svg class="audio-icon icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="audio-icon icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+  <!-- About -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+
+    <!-- Foto -->
+    <div class="about-photo-wrap" id="aboutPhoto">
+  <div class="about-photo-tilt" id="photoTilt">
+    <img src="img_ilus/Ana.png"
+         alt="Anglaia" class="about-photo">
+    <div class="about-photo-shine"></div>
+  </div>
+  <!--<div class="about-stat">
+    <span class="stat-n">4+</span>
+    <span class="stat-l">años diseñando</span>
+  </div>-->
+</div>
+
+    <!-- Texto -->
+    <div class="about-text-col">
+      <span class="about-eyebrow">Un poco de mi historia</span>
+      <h2 class="about-name">Soy <em>Anglaia.</em></h2>
+      <p class="about-bio">Soy diseñadora visual y mi propósito es contar historias. Más allá de buscar la perfección estética, mi trabajo se fundamenta en la transformación y la conexión. Diseño para que cada proyecto tenga un sello único que no solo encaje, sino que conecte profundamente con las personas. Porque la verdadera magia y el valor de las cosas siempre están ahí: en los pequeños detalles.</p>
+
+      <div class="about-tags">
+        <span class="tag">Ilustración</span>
+        <span class="tag">Diseño textil</span>
+        <span class="tag">Experiencias</span>
+        <span class="tag">Identidad visual</span>
+      </div>
+
+      <a href="#portafolio" class="about-cta">
+        Ver mi trabajo <span class="about-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio-section" id="portafolio">
+  <div class="portfolio-container">
+
+    <!-- Header -->
+    <div class="portfolio-header">
+      <span class="portfolio-eyebrow">Mi trabajo</span>
+      <h2 class="portfolio-title">Mis Proyectos</h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-wrap">
+      <button class="tab-btn active" data-tab="ilustraciones">Ilustraciones</button>
+      <button class="tab-btn" data-tab="textiles">Textiles</button>
+      <div class="tab-otros-wrap" id="tabOtrosWrap">
+        <button class="tab-btn tab-otros-btn" data-tab="otros" id="tabOtrosBtn">
+          Más Creaciones
+          <!--<svg class="otros-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>-->
+        </button>
+        <!--<div class="otros-dropdown" id="otrosDropdown">
+          <button class="otros-sub-btn" data-sub="exposiciones">Exposiciones</button>
+          <button class="otros-sub-btn" data-sub="editorial">Editorial</button>
+          <button class="otros-sub-btn" data-sub="juegos">Juegos</button>
+          <button class="otros-sub-btn" data-sub="marca">Marca</button>
+          <button class="otros-sub-btn" data-sub="fotografia">Fotografía</button>
+        </div>-->
+      </div>
+      <div class="tab-line" id="tabLine"></div>
+    </div>
+
+    <!-- Paneles -->
+    <div class="tab-panels">
+
+      <!-- Ilustraciones -->
+      <div class="tab-panel active" id="tab-ilustraciones">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="img_ilus/ILUS_1.jpg" alt="Ilustración 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="ilustracion-1.html" class="gallery-btn">Ver ilustración <span>→</span></a> -->
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="img_ilus/ILUS_2.png" alt="Ilustración 2" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="ilustracion-2.html" class="gallery-btn">Ver ilustración <span>→</span></a> -->
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="img_ilus/ILUS_3.jpg" alt="Ilustración 3" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="ilustracion-3.html" class="gallery-btn">Ver ilustración <span>→</span></a> -->
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-cta-wrap">
+          <a href="ilustraciones.html" class="portfolio-cta">Ver todas las ilustraciones <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- Textiles -->
+      <div class="tab-panel" id="tab-textiles">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="img_text/TEXTIL_1.jpg" alt="Textil 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="textil-1.html" class="gallery-btn">Ver proyecto <span>→</span></a> -->
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="img_text/TEXTIL_2.jpg" alt="Textil 2" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="textil-2.html" class="gallery-btn">Ver proyecto <span>→</span></a> -->
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="TEXTILES/Tejiendo melodías_/file_000000003434720e8e7d479a0024ee4e.png" alt="Textil 3" class="gallery-image">
+            <div class="gallery-overlay">
+              <!-- <a href="textil-3.html" class="gallery-btn">Ver proyecto <span>→</span></a> -->
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-cta-wrap">
+          <a href="textiles.html" class="portfolio-cta">Ver todos los textiles <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- Otros -->
+      <div class="tab-panel" id="tab-otros">
+        <div class="gallery-grid" id="otrosGrid">
+          <!-- Exposiciones -->
+          <div class="gallery-item" data-sub="exposiciones">
+            <img src="EXPOSICIONES/Vestigios_/vestigios.jpeg" alt="Exposición 1" class="gallery-image">
+            <div class="gallery-overlay">
+             <!--<a href="otros-1.html" class="gallery-btn">Ver proyecto <span>→</span></a>-->
+            </div>
+          </div>
+  
+          <!-- Editorial -->
+          <div class="gallery-item" data-sub="editorial">
+            <img src="revis_img/ESENCIA_REVISTA.pdf.png" alt="Editorial 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <!--<a href="otros-4.html" class="gallery-btn">Ver proyecto <span>→</span></a>-->
+            </div>
+          </div>
+          <!-- Juegos -->
+          <div class="gallery-item" data-sub="juegos">
+            <img src="img_jug/j2.png" alt="Juego 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <!--<a href="otros-7.html" class="gallery-btn">Ver proyecto <span>→</span></a>-->
+            </div>
+          </div>
+         
+          <!-- Marca -->
+          <div class="gallery-item" data-sub="marca">
+            <img src="MARCA/parche/Picsart_26-05-18_13-34-37-967.jpg.jpeg" alt="Marca 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <!--<a href="otros-10.html" class="gallery-btn">Ver proyecto <span>→</span></a>-->
+            </div>
+          </div>
+          
+          <!-- Fotografía -->
+          <!--<div class="gallery-item" data-sub="fotografia">
+            <img src="img_otros/OTROS_13.jpg" alt="Fotografía 1" class="gallery-image">
+            <div class="gallery-overlay">
+              <a href="otros-13.html" class="gallery-btn">Ver proyecto <span>→</span></a>
+            </div>-->
+          </div>
+        </div>
+        <div class="portfolio-cta-wrap">
+          <a href="otros.html" class="portfolio-cta">Ver todos los trabajos <span>→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer" id="conectemos">
+
+  <div class="footer-inner">
+
+    <!-- Izquierda -->
+    <div class="footer-left">
+      <p class="footer-phrase" id="footerPhrase">¿Trabajamos juntos?</p>
+
+      <p class="footer-sub">Conectemos</p>
+
+      <!-- Redes -->
+      <div class="footer-socials">
+        <a href="https://instagram.com/anglaia__" target="_blank" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!--<a href="https://youtube.com/@anglaia" target="_blank" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@anglaia" target="_blank" class="social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+          </svg>
+        </a> -->
+  <button class="social-link cv-btn" aria-label="Hoja de Vida" id="cvBtn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </svg>
+</button>
+
+<div class="cv-overlay" id="cvOverlay">
+  <div class="cv-modal">
+    
+    <div class="cv-sidebar">
+      <div class="cv-profile">
+        <img src="img_ilus/Ana.png" alt="Anglaia" class="cv-avatar">
+        <h3 class="cv-name">Anglaia</h3>
+        <p class="cv-role">Diseñadora Visual</p>
+      </div>
+      <div class="cv-actions">
+        <p class="cv-text">Explora mi experiencia o guarda una copia para revisarla luego.</p>
+        <a href="Hoja de vida - Ana María Giraldo V.pdf" download class="cv-download-btn">
+          Descargar CV
+        </a>
+      </div>
+    </div>
+
+    <div class="cv-content">
+      <div class="cv-modal-header">
+        <span class="cv-modal-title">Mi Hoja de Vida</span>
+        <button class="cv-modal-close" id="cvClose" aria-label="Cerrar">✕</button>
+      </div>
+      <iframe class="cv-frame" src="Hoja de vida - Ana María Giraldo V.pdf" title="Hoja de Vida de Anglaia"></iframe>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Derecha: formulario -->
+    <form class="footer-form" id="footerForm">
+  <div class="form-field">
+    <input type="text" id="formName" name="nombre" placeholder=" " required autocomplete="off">
+    <label for="formName">Nombre</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <input type="email" id="formEmail" name="email" placeholder=" " required autocomplete="off">
+    <label for="formEmail">Email</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <textarea id="formMessage" name="mensaje" placeholder=" " required rows="3"></textarea>
+    <label for="formMessage">Mensaje</label>
+    <div class="form-line"></div>
+  </div>
+  <button type="submit" class="form-submit">
+    <span class="submit-text">Enviar mensaje</span>
+    <span class="submit-arrow">→</span>
+  </button>
+</form>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <span>© 2026 Anglaia. Todos los derechos reservados.</span>
+  </div>
+  
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

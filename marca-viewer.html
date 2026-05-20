@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto de Marca — Anglaia</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="marca-viewer.css">
+</head>
+<body>
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">ANGLAIA</div>
+    <div class="loading-bar"></div>
+  </div>
+
+  <header class="viewer-header">
+    <div class="header-left">
+      <span class="brand-tag">Portafolio / Marca</span>
+    </div>
+    <a href="otros.html#marca" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Volver al menú
+    </a>
+  </header>
+
+  <main class="stage" id="mainStage">
+    
+    <div class="info-sidebar" id="infoSidebar">
+      <h1 class="viewer-title" id="marcaTitle">Cargando...</h1>
+      <div class="title-separator"></div>
+      <p class="viewer-desc" id="marcaDesc">Cargando descripción del proyecto...</p>
+    </div>
+
+    <div class="video-container" id="videoContainer">
+      <div class="video-wrapper">
+        <video id="marcaVideo" controls playsinline></video>
+        <div class="video-caption">Neolegendarios</div>
+      </div>
+    </div>
+
+    <div class="book-scene">
+      <button class="nav-btn prev" id="prevBtn" disabled aria-label="Página anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="book-container-flexible">
+        <div class="book-content-wrapper">
+          
+          <div class="book-inner-info" id="bookInnerInfo">
+            <h2 class="book-inner-title" id="bookInnerTitle"></h2>
+            <p class="book-inner-desc" id="bookInnerDesc"></p>
+          </div>
+
+          <div class="book" id="book">
+            <div class="page-slot left" id="leftSlot">
+              <canvas id="leftCanvas"></canvas>
+            </div>
+            <div class="page-slot right" id="rightSlot">
+              <canvas id="rightCanvas"></canvas>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="nav-btn next" id="nextBtn" aria-label="Página siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+
+  </main>
+
+  <footer class="viewer-footer">
+    <div class="page-label" id="pageLabel">PORTADA</div>
+    <div class="page-dots" id="pageDots"></div>
+  </footer>
+
+  <script src="marca-viewer.js"></script>
+</body>
+</html>

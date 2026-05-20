@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Tomada — Anglaia</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="casa-tomada.css">
+</head>
+<body>
+
+  <!-- LOADER INTERACTIVO -->
+  <div class="loader-screen" id="loaderScreen">
+    <canvas class="loader-canvas" id="loaderCanvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-logo-img" id="loaderLogo">
+        <!-- Cambia "tu-logo.png" por la ruta de tu imagen -->
+        <img src="Recurso 1.png "Anglaia Logo">
+      </div>
+      <h1 class="loader-title">Casa Tomada</h1>
+      <p class="loader-subtitle">Este proyecto editorial está inspirado en Casa Tomada de Julio Cortázar. A partir de este cuento se desarrolló una propuesta gráfica y editorial que traduce visualmente las emociones, tensiones y símbolos presentes en la historia, como la rutina, el silencio, el tejido y el caos.</p>
+      <h2 class="loader-title">Concepto</h2>
+      <p class="loader-subtitle">El concepto principal es La dualidad del caos, una idea que representa cómo el desorden invade lentamente la estabilidad y transforma la percepción de quienes habitan el espacio. Desde esta idea se construyó toda la narrativa visual y editorial del proyecto.</p>
+      <div class="loader-progress-bar">
+        <div class="loader-progress-fill" id="loaderProgressFill"></div>
+      </div>
+      <div class="loader-threads" id="loaderThreads">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <button class="loader-btn" id="loaderBtn">Explorar Casa</button>
+    </div>
+  </div>
+
+  <canvas class="mural-canvas" id="muralCanvas"></canvas>
+
+  <header class="viewer-header">
+    <div class="viewer-logo"><span>Casa Tomada</span></div>
+    <a href="otros.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Volver
+    </a>
+  </header>
+
+  <main class="mural-container">
+    <div class="mural-content">
+      
+      <div class="mural-item item-1 opening-pin" data-speed="0.12">
+        <div class="pin" id="pin-1"></div> 
+        <div class="pin-hinge-container">
+          <img src="img_edit/pin2.png" alt="Interior de la Caja Abierta" class="pin-inside-content">
+          <div class="pin-cover-layer">
+            <img src="img_edit/pin.png" alt="Portada de la Caja Cerrada">
+            <div class="pin-shine"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mural-text text-for-1" data-speed="0.12">
+        <h3>Pin</h3>
+        <p>Tejíamos la rutina con hilos de ausencia,
+Era nuestra vida.</p>
+      </div>
+      
+
+      <div class="mural-item item-2" data-speed="0.22">
+        <div class="pin" id="pin-2"></div>
+        <img src="img_edit/20250917_153410.jpg.jpeg" alt="Ilustración 2">
+      </div>
+      <div class="mural-text text-for-2" data-speed="0.22">
+        <h3>Poster</h3>
+        <p>El silencio se quebró,
+Murmullo que nos encerró.
+El caos llegó,
+Y la casa nos tejió.</p>
+      </div>
+      
+
+      <div class="mural-item item-3" data-speed="0.08">
+        <div class="pin" id="pin-3"></div>
+        <img src="img_edit/Sin título_20260516_200506.png" alt="Ver Leporello">
+      </div>
+      <div class="mural-text text-for-3" data-speed="0.08">
+        <h3>Leporello</h3>
+        <p>Página tras página perdíamos nuestro juicio</p>
+      </div>
+      
+      <div class="mural-item item-4" data-speed="0.18">
+        <div class="pin" id="pin-4"></div>
+        <img src="img_edit/GIF-TEJIDOS.gif" alt="Animación Casa Tomada">
+      </div>
+      <div class="mural-text text-for-4" data-speed="0.18">
+        <h3>Gif</h3>
+        <p>Y en cada doblez aumentaba el desorden..</p>
+      </div>
+            
+      <div class="mural-item item-5" data-speed="0.14">
+        <div class="pin" id="pin-5"></div>
+        <div class="sticker-carousel">
+          <img src="img_edit/stick1.png" alt="Sticker 1" class="sticker-img active">
+          <img src="img_edit/stick2.png" alt="Sticker 2" class="sticker-img">
+          <img src="img_edit/stick3.png" alt="Sticker 3" class="sticker-img">
+          <img src="img_edit/stick4.png" alt="Sticker 4" class="sticker-img">
+          <img src="img_edit/stick5.png" alt="Sticker 5" class="sticker-img">
+        </div>
+      </div>
+      <div class="mural-text text-for-5" data-speed="0.14">
+        <h3>Stickers</h3>
+        <p>Atrapados,
+Rotos,
+Fuimos tejidos por el caos.</p>
+      </div>
+      
+
+      <div class="mural-item item-6" data-speed="0.26">
+        <div class="pin" id="pin-6"></div>
+        <img src="TEXTILES/Casa tomada/Sin título_20260517_215336.png" alt="Ilustración 6">
+      </div>
+      <div class="mural-text text-for-6" data-speed="0.26">
+        <h3>Suéter</h3>
+        <p>El hilo se detuvo,
+La tela se rasgó.
+El caos nos arropó,
+La casa nos tomó.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="gif-overlay" id="gifOverlay">
+    <button class="gif-close" id="gifClose" aria-label="Cerrar">✕</button>
+    <div class="gif-content">
+      <img src="InShot_20260517_190804716.gif" alt="Leporello Animado en Stop Motion">
+    </div>
+  </div>
+
+  <script src="casa.js"></script>
+</body>
+</html>

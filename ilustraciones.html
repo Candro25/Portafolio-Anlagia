@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="portafolio.css">
+  <title>Ilustraciones — Anglaia</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+</head>
+<body>
+
+    <!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-spirit">
+   <video class="loader-spirit-vid" autoplay loop muted playsinline>
+  <source src="criatura_transparent.webm" type="video/webm">
+  <source src="videos/criatura_transparent.webm" type="video/mp4"> <!-- fallback por si acaso -->
+</video>
+  </div>
+
+  <!-- Barra de carga -->
+  <div class="loader-bar-wrap">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+
+    <!-- LOGO izquierda -->
+    <a href="index.html#hero" class="nav-logo-link" aria-label="Inicio">
+  <img src="LOGO_ANGLAIA.png" alt="Logo Anglaia" class="logo-img">
+</a>
+
+<ul class="nav-list" id="navList">
+  <li class="nav-item">
+    <a href="index.html#about" class="nav-link">
+      <span class="link-inner">Sobre Mí</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="index.html#portafolio" class="nav-link">
+      <span class="link-inner">Creaciones</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="#conectemos" class="nav-link">
+      <span class="link-inner">Conectemos</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+</ul>
+
+
+    <div class="nav-highlight" id="highlight"></div>
+  </div>
+</nav>
+
+<!-- Hero pequeño -->
+<section class="ilus-hero">
+  <div class="ilus-hero-inner">
+    <span class="ilus-eyebrow">Portafolio</span>
+    <h1 class="ilus-title" id="ilusTitle">Ilustraciones</h1>
+    <p class="ilus-subtitle">Trazos de luz que tejen sueños sobre un lienzo infinito de cristal.</p>
+    <p class="ilus-count" id="ilusCount">8 obras</p>
+  </div>
+</section>
+
+
+<!-- Filtros -->
+<div class="ilus-filters-wrap">
+  <div class="ilus-filters" id="ilusFilters">
+    <button class="filter-btn active" data-filter="all">Todas</button>
+    <!-- <button class="filter-btn" data-filter="reciente">Recientes</button> -->
+  </div>
+</div>
+
+
+<!-- Galería asimétrica -->
+<main class="ilus-gallery" id="ilusGallery">
+
+  <article class="ilus-item data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/ILUS_1.jpg" alt="Ilustración 1" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Abril 2026</span> -->
+          <h3 class="ilus-item-title">Autoretrato Estilo Arcane</h3>
+          <!-- <a href="ilustracion-1.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item" data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/ILUS_2.png" alt="Ilustración 2" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Marzo 2026</span> -->
+          <h3 class="ilus-item-title">Autoretrato Estilo Gravity Falls</h3>
+         <!-- <a href="ilustracion-2.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/ANA MARÍA - HOTEL HAZBIN.jpg" alt="Ilustración 3" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Octubre 2025</span> -->
+          <h3 class="ilus-item-title">Autoretrato Estilo Hazbin Hotel</h3>
+          <!-- <a href="ilustracion-7.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+ 
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/ILUS_4.jpg" alt="Ilustración 4" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Enero 2026</span> -->
+          <h3 class="ilus-item-title">Te recuerdo hoy</h3>
+          <!-- <a href="ilustracion-4.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/Anally .jpg" alt="Ilustración 5" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Diciembre 2025</span> -->
+          <h3 class="ilus-item-title">Anally</h3>
+          <!-- <a href="ilustracion-5.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/abuelos.jpg" alt="Ilustración 6" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Noviembre 2025</span> -->
+          <h3 class="ilus-item-title">Un para siempre</h3>
+          <!-- <a href="ilustracion-6.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+   <article class="ilus-item" data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/ILUS_3.jpg" alt="Ilustración 7" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Febrero 2026</span> -->
+          <h3 class="ilus-item-title">Lo desconocido</h3>
+          <!-- <a href="ilustracion-3.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_ilus/Animación.jpg" alt="Ilustración 8" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Octubre 2025</span> -->
+          <h3 class="ilus-item-title">De noche</h3>
+          <!-- <a href="ilustracion-7.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+<article class="ilus-item">
+  <div class="ilus-item-inner">
+    <img 
+      src="img_ilus/EL FIN (1).jpg" 
+      alt="Ilustración 9" 
+      class="ilus-img"
+      style="object-position: 20% center;"
+    >
+    <div class="ilus-overlay">
+      <div class="ilus-overlay-content">
+        <!-- <span class="ilus-tag-label">Octubre 2025</span> -->
+        <h3 class="ilus-item-title">El fin</h3>
+        <!-- <a href="ilustracion-7.html" class="ilus-view-btn">Ver ilustración <span>→</span></a> -->
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+</main>
+
+<!-- Explorar también -->
+<div class="explore-wrap">
+  <a href="textiles.html" class="explore-card">
+    <img src="img_text/TEXTIL_1.jpg" alt="Textiles" class="explore-img">
+    <div class="explore-overlay">
+      <span class="explore-label">Textiles</span>
+      <span class="explore-arrow">→</span>
+    </div>
+  </a>
+  <a href="otros.html" class="explore-card">
+    <img src="img_otros/OTROS_1.jpg" alt="Otros" class="explore-img">
+    <div class="explore-overlay">
+      <span class="explore-label">Otros</span>
+      <span class="explore-arrow">→</span>
+    </div>
+  </a>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer" id="conectemos">
+
+  <div class="footer-inner">
+
+    <!-- Izquierda -->
+    <div class="footer-left">
+      <p class="footer-phrase" id="footerPhrase">¿Trabajamos juntos?</p>
+
+      <p class="footer-sub">Conectemos</p>
+
+      <!-- Redes -->
+      <div class="footer-socials">
+        <a href="https://instagram.com/anglaia__" target="_blank" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!--<a href="https://youtube.com/@anglaia" target="_blank" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@anglaia" target="_blank" class="social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+          </svg>
+        </a> -->
+  <button class="social-link cv-btn" aria-label="Hoja de Vida" id="cvBtn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </svg>
+</button>
+
+<div class="cv-overlay" id="cvOverlay">
+  <div class="cv-modal">
+    
+    <div class="cv-sidebar">
+      <div class="cv-profile">
+        <img src="img_ilus/Ana.png" alt="Anglaia" class="cv-avatar">
+        <h3 class="cv-name">Anglaia</h3>
+        <p class="cv-role">Diseñadora Visual</p>
+      </div>
+      <div class="cv-actions">
+        <p class="cv-text">Explora mi experiencia o guarda una copia para revisarla luego.</p>
+        <a href="Hoja de vida - Ana María Giraldo V.pdf" download class="cv-download-btn">
+          Descargar CV
+        </a>
+      </div>
+    </div>
+
+    <div class="cv-content">
+      <div class="cv-modal-header">
+        <span class="cv-modal-title">Mi Hoja de Vida</span>
+        <button class="cv-modal-close" id="cvClose" aria-label="Cerrar">✕</button>
+      </div>
+      <iframe class="cv-frame" src="Hoja de vida - Ana María Giraldo V.pdf" title="Hoja de Vida de Anglaia"></iframe>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Derecha: formulario -->
+    <form class="footer-form" id="footerForm">
+  <div class="form-field">
+    <input type="text" id="formName" name="nombre" placeholder=" " required autocomplete="off">
+    <label for="formName">Nombre</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <input type="email" id="formEmail" name="email" placeholder=" " required autocomplete="off">
+    <label for="formEmail">Email</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <textarea id="formMessage" name="mensaje" placeholder=" " required rows="3"></textarea>
+    <label for="formMessage">Mensaje</label>
+    <div class="form-line"></div>
+  </div>
+  <button type="submit" class="form-submit">
+    <span class="submit-text">Enviar mensaje</span>
+    <span class="submit-arrow">→</span>
+  </button>
+</form>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <span>© 2026 Anglaia. Todos los derechos reservados.</span>
+  </div>
+  
+</footer>
+
+<script src="script.js"></script>
+<script src="portafolio.js"></script>
+
+<!-- Botón volver arriba -->
+<button class="back-top" id="backTop" aria-label="Volver arriba">
+  ↑
+</button>
+
+</body>
+</html>

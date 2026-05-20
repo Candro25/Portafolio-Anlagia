@@ -1,0 +1,577 @@
+/* ══════════════════════════════════════
+   OTROS — Hero
+══════════════════════════════════════ */
+.otros-hero {
+  position: relative;
+  padding: 10rem 6% 5rem;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.otros-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(217,92,20,0.06) 0%, transparent 70%),
+              radial-gradient(ellipse at 20% 80%, rgba(61,122,90,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.otros-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Pills de categorías en el hero */
+.otros-hero-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+}
+
+.otros-hero-cat {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #0d0d0d;
+  border: 1.5px solid #e8e8e8;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.otros-hero-cat:hover {
+  background: #d95c14;
+  border-color: #d95c14;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════
+   LAYOUT — Índice + Contenido
+══════════════════════════════════════ */
+.otros-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 6% 8rem;
+  gap: 0 4rem;
+  align-items: start;
+}
+
+/* Índice móvil — oculto en desktop */
+.otros-index-mobile {
+  display: none;
+}
+
+/* ── Índice sticky lateral ── */
+.otros-index {
+  position: sticky;
+  top: 6rem;
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.otros-index-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 1rem;
+}
+
+.otros-index-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.otros-index-link {
+  display: block;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #aaaaaa;
+  text-decoration: none;
+  border-radius: 8px;
+  border-left: 2px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.otros-index-link:hover {
+  color: #0d0d0d;
+  background: #f5f5f5;
+}
+
+.otros-index-link.active {
+  color: #d95c14;
+  border-left-color: #d95c14;
+  background: rgba(217,92,20,0.05);
+}
+
+/* ── Contenido ── */
+.otros-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* ── Sección por categoría ── */
+.otros-cat-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.otros-cat-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.otros-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.otros-cat-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  color: #0d0d0d;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.otros-cat-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(to right, #d95c14, transparent);
+}
+
+/* ── Grid de proyectos ── */
+.otros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.otros-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1),
+              transform 0.5s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.otros-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.otros-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.13);
+}
+
+.otros-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.otros-img {
+  width: 100%;
+  aspect-ratio: 3/4 ;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.otros-item:hover .otros-img {
+  transform: scale(1.05);
+}
+
+.otros-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13,13,13,0.85) 0%,
+    rgba(13,13,13,0.3) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.otros-item:hover .otros-overlay { opacity: 1; }
+
+.otros-overlay-content {
+  transform: translateY(8px);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+
+.otros-item:hover .otros-overlay-content { transform: translateY(0); }
+
+.otros-date {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.3rem;
+}
+
+.otros-item-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════
+   ESTILOS DE LA VENTANA EMERGENTE INTERACTIVA DE LIBRETAS Y JUEGOS 3D
+   ══════════════════════════════════════ */
+
+.editorial-modal, .game-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-modal.active, .game-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Fondo oscurecido con desenfoque de cristal */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* Botón de cerrar flotante */
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.modal-close:hover {
+  transform: scale(1.2) rotate(90deg);
+  color: #b41e1e;
+}
+
+/* Contenedor Principal dividido de forma Cinematográfica */
+.modal-content-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 75vh;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Panel de Información Lateral */
+.modal-sidebar {
+  color: #f5f0e8;
+  display: flex;
+  flex-direction: flex-start;
+  flex-direction: column;
+}
+
+.modal-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #b41e1e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.modal-project-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.modal-project-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #bfae96;
+  margin: 0 0 40px 0;
+}
+
+/* Controles de Navegación */
+.modal-navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-arrow {
+  background: transparent;
+  border: 1px solid rgba(245, 240, 232, 0.2);
+  color: #f5f0e8;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: #f5f0e8;
+  color: #0a0a0a;
+  border-color: #f5f0e8;
+}
+
+.nav-counter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #888;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* --- ESCENARIO DE EXPOSICIÓN 3D --- */
+.modal-viewer-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+.gallery-3d-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  transform-style: preserve-3d;
+}
+
+/* Cartas de las Libretas/Juegos */
+.gallery-3d-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease, z-index 0.7s step-end;
+  will-change: transform, opacity;
+}
+
+.notebook-card {
+  position: relative;
+  width: 320px;
+  height: 440px;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0px;
+  
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+} 
+
+.notebook-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+  backface-visibility: hidden;
+}
+
+/* Sombra realista proyectada en el fondo */
+.notebook-shadow {
+  position: absolute;
+  bottom: -30px;
+  left: 5%;
+  width: 90%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+  transform: translateZ(-40px);
+  pointer-events: none;
+}
+
+/* --- POSICIONAMIENTO DINÁMICO 3D --- */
+
+/* Libreta del Centro (Activa) */
+.gallery-3d-item.position-center {
+  transform: translate3d(0, 0, 100px) scale(1);
+  z-index: 10;
+  opacity: 1;
+  cursor: grab;
+}
+
+/* Libreta de la Derecha */
+.gallery-3d-item.position-right {
+  transform: translate3d(55%, 0, -100px) rotateY(-35deg) scale(0.8);
+  z-index: 5;
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+/* Libreta de la Izquierda */
+.gallery-3d-item.position-left {
+  transform: translate3d(-55%, 0, -100px) rotateY(35deg) scale(0.8);
+  z-index: 5;
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+/* Si hay más imágenes (como en el de 7), se ocultan al fondo para ir rotando */
+.gallery-3d-item.position-hidden { 
+  transform: translate3d(0, 0, -250px) scale(0.5); 
+  z-index: 1; 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .otros-layout {
+    grid-template-columns: 1fr;
+    padding: 3rem 6% 6rem;
+    gap: 0;
+  }
+
+  .otros-index { display: none; }
+
+  .otros-index-mobile {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 6% 2rem;
+    position: sticky;
+    top: 5rem;
+    z-index: 100;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 3rem;
+  }
+
+  .otros-index-mobile::-webkit-scrollbar { display: none; }
+
+  .otros-index-link-m {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1.5px solid #e8e8e8;
+    transition: all 0.25s ease;
+  }
+
+  .otros-index-link-m:hover { color: #0d0d0d; border-color: #0d0d0d; }
+
+  .otros-index-link-m.active {
+    color: #d95c14;
+    border-color: #d95c14;
+    background: rgba(217,92,20,0.06);
+  }
+
+  .otros-content { grid-column: 1; }
+  .otros-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .modal-content-wrapper {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: 85vh;
+    overflow-y: auto;
+    gap: 20px;
+    padding-top: 40px;
+  }
+  .modal-sidebar {
+    text-align: center;
+    align-items: center;
+  }
+  .modal-project-desc {
+    margin-bottom: 20px;
+  }
+  .modal-viewer-3d {
+    height: 400px;
+  }
+  .notebook-card {
+    width: 220px;
+    height: 300px;
+  }
+  .gallery-3d-item.position-right {
+    transform: translate3d(40%, 0, -80px) rotateY(-25deg) scale(0.75);
+  }
+  .gallery-3d-item.position-left {
+    transform: translate3d(-40%, 0, -80px) rotateY(25deg) scale(0.75);
+  }
+}
+
+@media (max-width: 600px) {
+  .otros-hero { padding: 8rem 6% 4rem; }
+  .otros-grid { grid-template-columns: 1fr; }
+  .otros-cat-title { font-size: 1.6rem; }
+  .otros-index-mobile { padding: 0 5% 1.5rem; top: 4.5rem; }
+}

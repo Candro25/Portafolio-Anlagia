@@ -1,0 +1,188 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --brand-color: #d95c14;
+  --bg-dark: #0d0d0e;
+  --panel-dark: #141416;
+  --text-light: #ffffff;
+  --text-muted: #9a9a9a;
+  --shadow-deep: rgba(0, 0, 0, 0.6);
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* ── Loader ── */
+.loading-screen {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--bg-dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.loading-screen.hidden { opacity: 0; pointer-events: none; transform: scale(1.05); }
+.loading-logo { font-size: 2.5rem; font-weight: 300; letter-spacing: 0.4em; color: var(--text-light); }
+.loading-bar { width: 200px; height: 1px; background: #222; position: relative; overflow: hidden; }
+.loading-bar::after {
+  content: ''; position: absolute; inset: 0; background: var(--brand-color);
+  animation: loadSlide 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes loadSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+/* ── Header Minimalista ── */
+.viewer-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3rem; pointer-events: none;
+}
+.header-left, .back-btn { pointer-events: auto; }
+.brand-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); }
+.back-btn {
+  display: flex; align-items: center; gap: 8px; color: var(--text-light);
+  text-decoration: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+.back-btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.back-btn:hover { color: var(--brand-color); }
+.back-btn:hover svg { transform: translateX(-4px); }
+
+/* ── Stage Layout Principal ── */
+.stage {
+  height: 100vh; width: 100vw;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 4% 100px 4%; gap: 4rem; position: relative;
+}
+
+/* ── Título y Descripción Lateral (Oculto en ID 2) ── */
+.info-sidebar {
+  flex: 0 0 320px; display: flex; flex-direction: column; justify-content: center;
+  z-index: 10; animation: fadeIn 0.8s ease-out forwards;
+}
+.viewer-title { font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-light); text-transform: uppercase;}
+.title-separator { width: 40px; height: 3px; background: var(--brand-color); margin: 1.5rem 0; }
+.viewer-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; text-align: justify; }
+
+/* Cambios de visibilidad cuando hay Video (ID 2) */
+.stage.has-video .info-sidebar { display: none; }
+
+/* ── Video Especial ── */
+.video-container {
+  display: none; flex: 0 0 420px; flex-direction: column; justify-content: center;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.stage.has-video .video-container { display: flex; }
+
+.video-wrapper {
+  background: var(--panel-dark); padding: 10px; border-radius: 8px;
+  box-shadow: 0 30px 60px var(--shadow-deep); border: 1px solid #222;
+}
+video { width: 100%; border-radius: 4px; background: #000; display: block; }
+.video-caption { margin-top: 0.8rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-color); text-align: center; font-weight: 600; }
+
+/* ── Contenedores de la Revista ── */
+.book-scene {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; height: 100%;
+}
+.book-container-flexible {
+  display: flex; align-items: center; justify-content: center;
+  height: 100%; width: 100%;
+}
+.book-content-wrapper {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; width: 100%; height: 100%;
+}
+
+/* ── ESTILOS DEL TEXTO DENTRO DEL ESPACIO NEGRO DE LA REVISTA (ID 2) ── */
+.book-inner-info {
+  display: none; /* Oculto para las demás marcas */
+  flex-direction: column; gap: 8px; width: 100%;
+  max-width: 650px; text-align: center; align-items: center;
+  margin-bottom: 25px; animation: fadeIn 0.8s ease-out forwards;
+}
+/* Lo hacemos visible únicamente si la pantalla tiene video */
+.stage.has-video .book-inner-info { display: flex; }
+
+.book-inner-title {
+  font-size: 1.3rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-light);
+}
+.book-inner-desc {
+  font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);
+  font-weight: 300; text-wrap: balance;
+}
+
+/* Estructura del Libro Flipper */
+.book {
+  display: flex; position: relative;
+  box-shadow: 0 40px 90px var(--shadow-deep); background: #1a1a1a;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  perspective: 2500px; 
+}
+.page-slot { position: relative; overflow: hidden; background: #ffffff; }
+.page-slot.left { border-right: 1px solid rgba(0,0,0,0.1); }
+canvas { width: 100%; height: 100%; display: block; }
+
+/* Flipper 3D */
+.book-flipper {
+  position: absolute; top: 0; width: 50%; height: 100%;
+  transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+  z-index: 50; transition: transform 0.8s cubic-bezier(0.25, 1, 0.2, 1);
+}
+.book-flipper.flip-next { right: 0; transform-origin: left center; transform: rotateY(0deg); }
+.book-flipper.flip-next.flipping { transform: rotateY(-180deg); }
+.book-flipper.flip-prev { left: 0; transform-origin: right center; transform: rotateY(0deg); }
+.book-flipper.flip-prev.flipping { transform: rotateY(180deg); }
+
+.flipper-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: #ffffff; overflow: hidden;
+}
+.flipper-front { transform: rotateY(0deg); }
+.flipper-back { transform: rotateY(180deg); }
+
+.page-slot::after, .flipper-face::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+.page-slot.left::after, .flipper-back::after { background: linear-gradient(to right, rgba(0,0,0,0) 85%, rgba(0,0,0,0.08) 100%); }
+.page-slot.right::after, .flipper-front::after { background: linear-gradient(to left, rgba(0,0,0,0) 85%, rgba(0,0,0,0.08) 100%); }
+
+/* Controles Navegación */
+.nav-btn {
+  background: rgba(20, 20, 22, 0.6); border: 1px solid #252528; color: var(--text-light);
+  width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; flex-shrink: 0; backdrop-filter: blur(8px);
+}
+.nav-btn:hover:not(:disabled) { border-color: var(--brand-color); color: var(--brand-color); background: #141416; transform: scale(1.1); }
+.nav-btn:disabled { opacity: 0.05; cursor: not-allowed; }
+.nav-btn svg { width: 22px; height: 22px; }
+
+/* Footer */
+.viewer-footer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.5rem;
+  background: linear-gradient(to top, rgba(13,13,14,0.95) 0%, transparent 100%);
+}
+.page-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; color: var(--text-muted); }
+.page-dots { display: flex; gap: 8px; justify-content: center; }
+.page-dot { width: 6px; height: 6px; border-radius: 50%; background: #333336; cursor: pointer; transition: all 0.3s; }
+.page-dot:hover { background: #666; }
+.page-dot.active { background: var(--brand-color); transform: scale(1.5); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive */
+@media (max-width: 1150px) {
+  .stage { flex-direction: column-reverse; padding-top: 100px; height: auto; min-height: 100vh; justify-content: flex-end; gap: 2.5rem; overflow-y: auto;}
+  .info-sidebar { flex: none; max-width: 500px; text-align: center; align-items: center; }
+  .video-container { flex: none; width: 100%; max-width: 500px; }
+  .book-scene { width: 100%; height: 50vh; min-height: 350px; }
+  .viewer-header { padding: 1rem 1.5rem; }
+  .book-inner-info { margin-bottom: 15px; }
+}

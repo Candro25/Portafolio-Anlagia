@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="portafolio.css">
+  <title>Textiles — Anglaia</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+</head>
+<body>
+<div class="loader" id="loader">
+  <div class="loader-spirit">
+   <video class="loader-spirit-vid" autoplay loop muted playsinline>
+  <source src="criatura_transparent.webm" type="video/webm">
+  <source src="videos/criatura_transparent.webm" type="video/mp4"> </video>
+  </div>
+
+  <div class="loader-bar-wrap">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+
+    <a href="index.html#hero" class="nav-logo-link" aria-label="Inicio">
+  <img src="LOGO_ANGLAIA.png" alt="Logo Anglaia" class="logo-img">
+</a>
+
+<ul class="nav-list" id="navList">
+  <li class="nav-item">
+    <a href="index.html#about" class="nav-link">
+      <span class="link-inner">Sobre Mí</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="index.html#portafolio" class="nav-link">
+      <span class="link-inner">Creaciones</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a href="#conectemos" class="nav-link">
+      <span class="link-inner">Conectemos</span>
+      <span class="dot"></span>
+    </a>
+  </li>
+</ul>
+
+    <div class="nav-highlight" id="highlight"></div>
+  </div>
+</nav>
+
+<section class="ilus-hero">
+  <div class="ilus-hero-inner">
+    <span class="ilus-eyebrow">Portafolio</span>
+    <h1 class="ilus-title" id="ilusTitle">Textiles</h1>
+    <p class="ilus-subtitle">Hilos que entrelazan colores y texturas para tejer historias que abrazan la piel.</p>
+    <p class="ilus-count" id="ilusCount">6 proyectos</p>
+  </div>
+</section>
+
+<div class="ilus-filters-wrap">
+  <div class="ilus-filters" id="ilusFilters">
+    <button class="filter-btn active" data-filter="all">Todas</button>
+    <button class="filter-btn" data-filter="reciente">Recientes</button>
+  </div>
+</div>
+
+<main class="ilus-gallery" id="ilusGallery">
+
+<article class="ilus-item" data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="TEXTILES/Disfraz 2024/20251019_183726.jpg" alt="Textil 1" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Marzo 2026</span> -->
+          <h3 class="ilus-item-title">Dizfras: Una noche en Venecia</h3>
+          <a href="javascript:void(0);" id="open-textil-1" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="img_text/TEXTIL_4.jpg" alt="Textil 2" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Enero 2026</span> -->
+          <h3 class="ilus-item-title">Disfraz: Así en la tierra como en el infierno</h3>
+          <a href="javascript:void(0);" id="open-textil-2" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+
+  <article class="ilus-item" data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="TEXTILES/Post Mortem/Picsart_25-06-16_15-05-54-739.jpg" alt="Textil 3" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Febrero 2026</span> -->
+          <h3 class="ilus-item-title">Post Mortem</h3>
+          <a href="javascript:void(0);" id="open-textil-3" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item" data-tags="reciente">
+    <div class="ilus-item-inner">
+      <img src="TEXTILES/Casa tomada/TEXTIL_2.jpg.jpeg" alt="Textil 4" class="ilus-img">
+      <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Abril 2026</span> -->
+          <h3 class="ilus-item-title">Tejidos por el caos</h3>
+          <a href="javascript:void(0);" id="open-textil-4" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="TEXTILES/Tejiendo melodías_/file_000000003434720e8e7d479a0024ee4e.png" alt="Textil 5" class="ilus-img"> <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Diciembre 2025</span> -->
+          <h3 class="ilus-item-title">Tejiendo melodías</h3>
+          <a href="javascript:void(0);" id="open-textil-5" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="ilus-item">
+    <div class="ilus-item-inner">
+      <img src="TEXTILES/Chaqueta/20260419_171539(0).jpg" alt="Textil 6" class="ilus-img"> <div class="ilus-overlay">
+        <div class="ilus-overlay-content">
+          <!-- <span class="ilus-tag-label">Noviembre 2025</span> -->
+          <h3 class="ilus-item-title">La belleza en la muerte</h3>
+          <a href="javascript:void(0);" id="open-textil-6" class="ilus-view-btn">Ver proyecto <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<div class="explore-wrap">
+  <a href="ilustraciones.html" class="explore-card">
+    <img src="img_ilus/ILUS_1.jpg" alt="Ilustraciones" class="explore-img">
+    <div class="explore-overlay">
+      <span class="explore-label">Ilustraciones</span>
+      <span class="explore-arrow">→</span>
+    </div>
+  </a>
+  <a href="otros.html" class="explore-card">
+    <img src="img_otros/OTROS_1.jpg" alt="Otros" class="explore-img">
+    <div class="explore-overlay">
+      <span class="explore-label">Otros</span>
+      <span class="explore-arrow">→</span>
+    </div>
+  </a>
+</div>
+
+<div class="textile-modal" id="modal-textil-1">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">Disfraz: Una noche en Venecia.</h2>
+      <p class="modal-project-desc">Un disfraz inspirado en el espíritu enigmático del Carnaval de Venecia, donde el misterio, la elegancia y el exceso visual se convierten en protagonistas. La pieza combina siluetas teatrales, textiles de apariencia lujosa y detalles ornamentales que evocan los antiguos bailes de máscaras venecianos. Encajes, brillos sutiles, bordados y una máscara imponente construyen una estética sofisticada y oscura, mientras los contrastes entre luces y sombras generan una atmósfera dramática y cautivadora. Más que un disfraz, es una representación del anonimato, la extravagancia y la magia decadente que caracteriza al carnaval veneciano.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 7</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_183726.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_161105 (2).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_170314 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_163341.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="4"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_170321 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="5"><div class="notebook-card"><img src="TEXTILES/Disfraz 2024/20251019_171446.jpg"><div class="notebook-shadow"></div></div></div>
+        <!-- <div class="gallery-3d-item position-left" data-index="6"><div class="notebook-card"><img src="AQUI_TU_IMAGEN_TEXTIL2_7.jpg"><div class="notebook-shadow"></div></div></div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="textile-modal" id="modal-textil-2">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">Disfraz: Así en la tierra como en el infierno.</h2>
+      <p class="modal-project-desc">Un vestuario inspirado en la dualidad entre lo sagrado y lo infernal, tomando como referencia la Virgen Dolorosa, un Jesús crucificado y la estética melancólica de Corpse Bride. La pieza está construida con flores hechas a mano una a una, creando una apariencia etérea y decadente donde la delicadeza floral contrasta con símbolos de dolor, muerte y devoción. Sus texturas envejecidas y siluetas teatrales evocan una figura atrapada entre la tierra y el infierno.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 7</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Disfraz 2023/TEXTIL_4.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Disfraz 2023/20241031_174641.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Disfraz 2023/20241031_164452.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Disfraz 2023/20241031_163556.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="4"><div class="notebook-card"><img src="TEXTILES/Disfraz 2023/20241031_165120.jpg"><div class="notebook-shadow"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="textile-modal" id="modal-textil-3">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">Post Mortem.</h2>
+      <p class="modal-project-desc">Un diseño de vestuario inspirado en las fotografías post mortem del siglo XIX, donde la delicadeza y la nostalgia se mezclan con una atmósfera silenciosa y melancólica. La pieza evoca la apariencia de un recuerdo detenido en el tiempo, utilizando encajes, transparencias y textiles envejecidos que transmiten fragilidad y ausencia. Sus detalles florales y siluetas etéreas construyen una estética poética y fantasmal, como si el cuerpo retratado existiera entre la memoria y el descanso eterno.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 7</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Post Mortem/Picsart_25-06-16_15-05-54-739.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Post Mortem/Picsart_25-06-16_15-09-28-000.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Post Mortem/_MG_3798.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Post Mortem/Picsart_25-06-12_14-47-22-400.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="4"><div class="notebook-card"><img src="TEXTILES/Post Mortem/_MG_9836.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="5"><div class="notebook-card"><img src="TEXTILES/Post Mortem/Picsart_25-06-16_14-45-31-862.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-left" data-index="6"><div class="notebook-card"><img src="TEXTILES/Post Mortem/_MG_3768 (1).jpg"><div class="notebook-shadow"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="textile-modal" id="modal-textil-4">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">Tejidos por el caos.</h2>
+      <p class="modal-project-desc">Basado en Casa Tomada de Julio Cortázar, este buso representa la invasión silenciosa del caos dentro de un espacio cotidiano. La pieza toma elementos simbólicos del cuento, como el deterioro, la rutina y el encierro, para transformarlos en una propuesta visual y textil. A través de las texturas, la composición y la intervención gráfica, el buso busca transmitir la sensación de una presencia invisible que poco a poco se apropia de la casa y de quienes la habitan.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 5</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Casa tomada/TEXTIL_2.jpg.jpeg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Casa tomada/1758138877597.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Casa tomada/1758138932418.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Casa tomada/1758139695499.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-left" data-index="4"><div class="notebook-card"><img src="TEXTILES/Casa tomada/1758139983072.jpg"><div class="notebook-shadow"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="textile-modal" id="modal-textil-5">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">Tejiendo melodías.</h2>
+      <p class="modal-project-desc">Las piezas textiles de Tejiendo Melodías reinterpretan la música parrandera antioqueña a través del diseño visual y textil, transformando emociones, memorias y símbolos culturales en objetos sensibles y narrativos. Compuestas por una falda, una chalina y un sombrero, cada pieza representa un concepto central del género parrandero: la fiesta y la alegría, la nostalgia melancólica y la identidad auténtica. A través de texturas, colores y elementos simbólicos, los textiles funcionan como archivos visuales que preservan y resignifican la memoria sonora y cultural antioqueña.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 6</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Tejiendo melodías_/file_000000003434720e8e7d479a0024ee4e.png"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Tejiendo melodías_/file_00000000856c720ea9507b957094795f.png"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Tejiendo melodías_/file_00000000ac1871f59f3c04fa4c05d072.png"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Tejiendo melodías_/file_00000000d34071f7b32250a5b2aa00a6.png"><div class="notebook-shadow"></div></div></div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="textile-modal" id="modal-textil-6">
+  <div class="modal-overlay"></div>
+  <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+  <div class="modal-content-wrapper">
+    <div class="modal-sidebar">
+      <span class="modal-tag">Serie Textil</span>
+      <h2 class="modal-project-title">La belleza en la muerte</h2>
+      <p class="modal-project-desc">Chaqueta intervenida artesanalmente bajo el concepto de “la belleza de la muerte”. La pieza combina serigrafía casera, bordado manual y ensamblaje de objetos para construir una narrativa visual donde flores, polillas y huesos se convierten en símbolos de transformación y permanencia.
+
+La intervención incluye orquídeas con ojos, magnolias emergiendo desde una calavera y bordados en tonos grises y naranjas que atraviesan la prenda como cicatrices. Como detalle final, incorpora un pin hecho a mano a partir de una medalla intervenida con terciopelo, una pequeña calavera incrustada y un corazón colgante.
+
+Cada elemento fue realizado manualmente, convirtiendo la pieza en una exploración entre moda, arte textil y simbolismo.</p>
+      <div class="modal-navigation">
+        <button class="nav-arrow prev">&#8592;</button>
+        <span class="nav-counter">1 / 7</span>
+        <button class="nav-arrow next">&#8594;</button>
+      </div>
+    </div>
+    <div class="modal-viewer-3d">
+      <div class="gallery-3d-container">
+        <div class="gallery-3d-item position-center" data-index="0"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_171539(0).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-right" data-index="1"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_171956.jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="2"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_154113 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="3"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_154307 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="4"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_162549 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-hidden" data-index="5"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_163129 (2).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-left" data-index="6"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_164604 (1).jpg"><div class="notebook-shadow"></div></div></div>
+        <div class="gallery-3d-item position-left" data-index="7"><div class="notebook-card"><img src="TEXTILES/Chaqueta/20260419_164604 (1).jpg"><div class="notebook-shadow"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="conectemos">
+
+  <div class="footer-inner">
+
+    <!-- Izquierda -->
+    <div class="footer-left">
+      <p class="footer-phrase" id="footerPhrase">¿Trabajamos juntos?</p>
+
+      <p class="footer-sub">Conectemos</p>
+
+      <!-- Redes -->
+      <div class="footer-socials">
+        <a href="https://instagram.com/anglaia__" target="_blank" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!--<a href="https://youtube.com/@anglaia" target="_blank" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@anglaia" target="_blank" class="social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+          </svg>
+        </a> -->
+  <button class="social-link cv-btn" aria-label="Hoja de Vida" id="cvBtn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </svg>
+</button>
+
+<div class="cv-overlay" id="cvOverlay">
+  <div class="cv-modal">
+    
+    <div class="cv-sidebar">
+      <div class="cv-profile">
+        <img src="img_ilus/Ana.png" alt="Anglaia" class="cv-avatar">
+        <h3 class="cv-name">Anglaia</h3>
+        <p class="cv-role">Diseñadora Visual</p>
+      </div>
+      <div class="cv-actions">
+        <p class="cv-text">Explora mi experiencia o guarda una copia para revisarla luego.</p>
+        <a href="Hoja de vida - Ana María Giraldo V.pdf" download class="cv-download-btn">
+          Descargar CV
+        </a>
+      </div>
+    </div>
+
+    <div class="cv-content">
+      <div class="cv-modal-header">
+        <span class="cv-modal-title">Mi Hoja de Vida</span>
+        <button class="cv-modal-close" id="cvClose" aria-label="Cerrar">✕</button>
+      </div>
+      <iframe class="cv-frame" src="Hoja de vida - Ana María Giraldo V.pdf" title="Hoja de Vida de Anglaia"></iframe>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Derecha: formulario -->
+    <form class="footer-form" id="footerForm">
+  <div class="form-field">
+    <input type="text" id="formName" name="nombre" placeholder=" " required autocomplete="off">
+    <label for="formName">Nombre</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <input type="email" id="formEmail" name="email" placeholder=" " required autocomplete="off">
+    <label for="formEmail">Email</label>
+    <div class="form-line"></div>
+  </div>
+  <div class="form-field">
+    <textarea id="formMessage" name="mensaje" placeholder=" " required rows="3"></textarea>
+    <label for="formMessage">Mensaje</label>
+    <div class="form-line"></div>
+  </div>
+  <button type="submit" class="form-submit">
+    <span class="submit-text">Enviar mensaje</span>
+    <span class="submit-arrow">→</span>
+  </button>
+</form>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <span>© 2026 Anglaia. Todos los derechos reservados.</span>
+  </div>
+  
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
+
+<script src="script.js"></script>
+<script src="portafolio.js"></script>
+
+</body>
+</html>

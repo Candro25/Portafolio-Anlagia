@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esencia — Revista</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="revista.css">
+</head>
+<body>
+
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">ESENCIA</div>
+    <div class="loading-bar"></div>
+  </div>
+
+  <header class="viewer-header">
+    <div class="viewer-logo"><span>Esencia</span></div>
+    <a href="otros.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Volver
+    </a>
+  </header>
+
+  <main class="stage">
+    <div class="book-scene">
+
+      <button class="nav-btn" id="prevBtn" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="book" id="book">
+        <div class="page-slot left" id="leftSlot">
+          <canvas id="leftCanvas"></canvas>
+        </div>
+        <div class="page-slot right" id="rightSlot">
+          <canvas id="rightCanvas"></canvas>
+        </div>
+      </div>
+
+      <button class="nav-btn" id="nextBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <div class="book-footer">
+      <div class="page-dots" id="pageDots"></div>
+      <div class="page-label" id="pageLabel">Portada</div>
+      <div class="kbd-hint">← → para navegar</div>
+    </div>
+  </main>
+
+  <script src="revista.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

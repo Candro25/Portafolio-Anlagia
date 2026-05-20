@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiencia — Exposición</title>
+  <link rel="icon" type="image/png" href="LOGO_ANGLAIA.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="exposicion-viewer.css">
+</head>
+<body>
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">ANGLAIA</div>
+      <p class="loading-subtitle" id="loadingSubtitle">Cargando experiencia</p>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <header class="exp-header">
+    <div class="exp-header-inner">
+      <a href="otros.html#exposiciones" class="exp-back-btn" aria-label="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        <span>Volver</span>
+      </a>
+      
+      <div class="exp-header-title">
+        <h1 id="headerTitle">Cargando...</h1>
+        <span class="exp-header-subtitle" id="headerSubtitle"></span>
+      </div>
+
+      <div class="exp-header-controls">
+        <button class="exp-action-btn" id="infoToggleBtn" title="Información">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+        </button>
+        <button class="exp-action-btn" id="fullscreenBtn" title="Pantalla Completa / Salir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="exp-main">
+    <div class="exp-canvas-wrap" id="canvasWrap">
+      <canvas id="mainCanvas" class="exp-canvas"></canvas>
+      <img id="mainImage" class="exp-image" alt="Exposición" style="display: none;">
+    </div>
+
+    <div class="exp-nav-controls">
+      <button class="exp-nav-btn exp-nav-prev" id="prevBtn" title="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button class="exp-nav-btn exp-nav-next" id="nextBtn" title="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+
+    <footer class="exp-footer">
+      <div class="exp-progress-bar" id="progressBar"></div>
+      <div class="exp-footer-inner">
+        <div class="exp-page-info">
+          <span class="exp-page-label" id="pageLabel">Página 1</span>
+          <span class="exp-page-total">/ <span id="totalPages">0</span></span>
+        </div>
+        <div class="exp-page-dots" id="pageDots"></div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="exp-modal" id="infoModal">
+    <div class="exp-modal-content">
+      <button class="exp-modal-close" id="closeModalBtn">&times;</button>
+      <h2 id="modalTitle">Título</h2>
+      <div class="exp-modal-meta">
+        <span id="modalLocation">Ubicación</span> | <span id="modalYear">Año</span>
+      </div>
+      <div class="exp-modal-desc" id="modalDesc">
+        Descripción de la obra...
+      </div>
+    </div>
+  </div>
+
+  <script src="exposicion-viewer.js"></script>
+</body>
+</html>
