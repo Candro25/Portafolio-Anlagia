@@ -1021,7 +1021,8 @@ section { /* Configuro todas las secciones generales */
   aspect-ratio: 3/4;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1),
+              filter 0.5s ease;
 }
 
 .gallery-item:hover .gallery-image {
@@ -1032,16 +1033,25 @@ section { /* Configuro todas las secciones generales */
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13,13,13,0.52);
+  background: linear-gradient(
+    to top,
+    rgba(13,13,13,0.72) 0%,
+    rgba(13,13,13,0.18) 55%,
+    rgba(217,92,20,0.12) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.35s ease;
-  backdrop-filter: blur(2px);
 }
 
 .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* La imagen resalta al hacer hover */
+.gallery-item:hover .gallery-image {
+  filter: brightness(1.08) saturate(1.12) contrast(1.04);
+}
 
 .gallery-btn {
   display: inline-flex;
@@ -1067,6 +1077,58 @@ section { /* Configuro todas las secciones generales */
 .gallery-btn:hover {
   background: #d95c14;
   color: #ffffff;
+}
+
+/* ── Botón inferior de tarjeta (Textiles y Más Creaciones) ── */
+.gallery-card-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem 1.2rem 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(13,13,13,0.88) 0%,
+    rgba(13,13,13,0.55) 60%,
+    transparent 100%
+  );
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background 0.35s ease,
+    letter-spacing 0.3s ease,
+    color 0.25s ease;
+}
+
+.gallery-card-btn:hover {
+  background: linear-gradient(
+    to top,
+    rgba(217,92,20,0.96) 0%,
+    rgba(217,92,20,0.55) 60%,
+    transparent 100%
+  );
+  letter-spacing: 0.17em;
+  color: #ffffff;
+}
+
+.gcb-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  font-style: normal;
+}
+
+.gallery-card-btn:hover .gcb-arrow {
+  transform: translateX(5px);
 }
 
 /* CTA ver todas */
@@ -1721,5 +1783,3 @@ html { /* Configuro el comportamiento del HTML */
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
-
-
