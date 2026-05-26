@@ -177,7 +177,11 @@ canvas { width: 100%; height: 100%; display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Responsive */
+/* ══════════════════════════════════════
+   RESPONSIVE DESIGN
+══════════════════════════════════════ */
+
+/* Pantallas grandes (1150px) */
 @media (max-width: 1150px) {
   .stage { flex-direction: column-reverse; padding-top: 100px; height: auto; min-height: 100vh; justify-content: flex-end; gap: 2.5rem; overflow-y: auto;}
   .info-sidebar { flex: none; max-width: 500px; text-align: center; align-items: center; }
@@ -185,4 +189,423 @@ canvas { width: 100%; height: 100%; display: block; }
   .book-scene { width: 100%; height: 50vh; min-height: 350px; }
   .viewer-header { padding: 1rem 1.5rem; }
   .book-inner-info { margin-bottom: 15px; }
+}
+
+/* Tablets grandes (900px) */
+@media (max-width: 900px) {
+  .viewer-header { padding: 1rem 1.2rem; }
+  .brand-tag { font-size: 0.65rem; }
+  .back-btn { font-size: 0.7rem; }
+  .back-btn svg { width: 14px; height: 14px; }
+  
+  .stage { 
+    padding: 70px 4% 80px 4%; 
+    gap: 2rem;
+  }
+  
+  .info-sidebar { 
+    max-width: 90%;
+    padding: 0 2%;
+  }
+  
+  .viewer-title { font-size: 1.4rem; }
+  .viewer-desc { font-size: 0.82rem; }
+  
+  .video-container { 
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  video { 
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .video-caption { font-size: 0.65rem; margin-top: 0.6rem; }
+  
+  .book-scene { 
+    width: 100%;
+    height: 45vh;
+    min-height: 300px;
+    gap: 1rem;
+  }
+  
+  .nav-btn { 
+    width: 44px; 
+    height: 44px; 
+    flex-shrink: 0;
+  }
+  
+  .nav-btn svg { width: 20px; height: 20px; }
+  
+  .viewer-footer { padding: 1.2rem; }
+  .page-label { font-size: 0.6rem; }
+  .page-dot { width: 5px; height: 5px; }
+}
+
+/* Tablets medianos (768px) */
+@media (max-width: 768px) {
+  .viewer-header { 
+    padding: 0.8rem 1rem; 
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  
+  .header-left { width: 100%; }
+  .back-btn { width: 100%; }
+  
+  .stage { 
+    padding: 60px 4% 70px 4%; 
+    gap: 1.8rem;
+    margin-top: 2rem;
+  }
+  
+  .info-sidebar { 
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .viewer-title { 
+    font-size: clamp(1.1rem, 5vw, 1.3rem);
+    text-align: center;
+  }
+  
+  .title-separator { margin: 1rem 0; }
+  
+  .viewer-desc { 
+    font-size: 0.78rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .video-container { 
+    max-width: 100%;
+    width: 100%;
+    max-height: 400px;
+  }
+  
+  video { 
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+  }
+  
+  .video-caption { font-size: 0.6rem; }
+  
+  .book-scene { 
+    width: 100%;
+    height: 40vh;
+    min-height: 280px;
+    gap: 0.8rem;
+  }
+  
+  .book-inner-info { 
+    margin-bottom: 12px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .book-inner-title { font-size: 1.1rem; }
+  .book-inner-desc { font-size: 0.8rem; }
+  
+  .nav-btn { 
+    width: 40px; 
+    height: 40px;
+  }
+  
+  .nav-btn svg { width: 18px; height: 18px; }
+  
+  .viewer-footer { 
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .page-label { font-size: 0.55rem; }
+}
+
+/* Móviles medianos (600px) */
+@media (max-width: 600px) {
+  .viewer-header { 
+    padding: 0.7rem 0.8rem; 
+    gap: 0.6rem;
+  }
+  
+  .brand-tag { font-size: 0.6rem; }
+  .back-btn { font-size: 0.65rem; }
+  
+  .stage { 
+    padding: 55px 3% 60px 3%; 
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .viewer-title { 
+    font-size: clamp(1rem, 6vw, 1.2rem);
+  }
+  
+  .viewer-desc { 
+    font-size: 0.75rem;
+  }
+  
+  .video-container { 
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  video { 
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+  }
+  
+  .video-wrapper { padding: 8px; }
+  .video-caption { font-size: 0.55rem; margin-top: 0.5rem; }
+  
+  .book-scene { 
+    width: 100%;
+    height: 35vh;
+    min-height: 250px;
+    gap: 0.6rem;
+  }
+  
+  .book-inner-title { font-size: 1rem; }
+  .book-inner-desc { font-size: 0.75rem; }
+  
+  .nav-btn { 
+    width: 38px; 
+    height: 38px;
+  }
+  
+  .nav-btn svg { width: 16px; height: 16px; }
+  
+  .page-slot {
+    max-width: 100%;
+  }
+  
+  .viewer-footer { 
+    padding: 0.8rem;
+    gap: 0.4rem;
+  }
+  
+  .page-label { font-size: 0.5rem; }
+  .page-dot { width: 4px; height: 4px; gap: 5px; }
+}
+
+/* Móviles pequeños (480px) */
+@media (max-width: 480px) {
+  .viewer-header { 
+    padding: 0.6rem 0.6rem; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg-dark);
+    border-bottom: 1px solid #222;
+  }
+  
+  .header-left, .back-btn { pointer-events: auto; }
+  
+  .brand-tag { font-size: 0.55rem; }
+  .back-btn { 
+    font-size: 0.6rem;
+    gap: 6px;
+  }
+  
+  .back-btn svg { width: 12px; height: 12px; }
+  
+  html, body { overflow-y: auto; }
+  
+  .stage { 
+    padding: 50px 3% 55px 3%; 
+    gap: 1.2rem;
+    margin-top: 0;
+    min-height: auto;
+    max-width: 100%;
+  }
+  
+  .info-sidebar { 
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .viewer-title { 
+    font-size: clamp(0.95rem, 7vw, 1.1rem);
+    line-height: 1.3;
+  }
+  
+  .title-separator { 
+    width: 30px;
+    height: 2px;
+    margin: 0.8rem 0;
+  }
+  
+  .viewer-desc { 
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+  
+  .video-container { 
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  video { 
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    aspect-ratio: 16/9;
+  }
+  
+  .video-wrapper { 
+    padding: 6px;
+    border-radius: 6px;
+  }
+  
+  .video-caption { 
+    font-size: 0.5rem; 
+    margin-top: 0.4rem;
+  }
+  
+  .book-scene { 
+    width: 100%;
+    height: 32vh;
+    min-height: 220px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .book-container-flexible {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .book-content-wrapper {
+    width: 100%;
+  }
+  
+  .book-inner-info { 
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+  
+  .book-inner-title { 
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  .book-inner-desc { 
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+  
+  .book {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 20px 40px var(--shadow-deep);
+  }
+  
+  .page-slot {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .nav-btn { 
+    width: 36px; 
+    height: 36px;
+    font-size: 0.8rem;
+  }
+  
+  .nav-btn:active:not(:disabled) { 
+    transform: scale(0.95);
+  }
+  
+  .nav-btn svg { width: 14px; height: 14px; }
+  
+  .viewer-footer { 
+    padding: 0.6rem;
+    gap: 0.3rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(13,13,14,0.98) 0%, rgba(13,13,14,0.9) 50%, transparent 100%);
+  }
+  
+  .page-label { 
+    font-size: 0.48rem;
+    letter-spacing: 0.25em;
+  }
+  
+  .page-dots { gap: 6px; }
+  .page-dot { 
+    width: 4px; 
+    height: 4px;
+  }
+}
+
+/* Móviles muy pequeños (360px) */
+@media (max-width: 360px) {
+  .viewer-header { padding: 0.5rem; }
+  
+  .brand-tag { font-size: 0.5rem; }
+  .back-btn { 
+    font-size: 0.55rem;
+    gap: 4px;
+  }
+  
+  .back-btn svg { width: 10px; height: 10px; }
+  
+  .stage { 
+    padding: 45px 2.5% 50px 2.5%; 
+    gap: 1rem;
+  }
+  
+  .viewer-title { 
+    font-size: clamp(0.9rem, 8vw, 1rem);
+  }
+  
+  .viewer-desc { 
+    font-size: 0.68rem;
+  }
+  
+  .video-container { 
+    margin-bottom: 0.8rem;
+  }
+  
+  video { 
+    max-height: 240px;
+  }
+  
+  .video-caption { font-size: 0.48rem; }
+  
+  .book-scene { 
+    height: 30vh;
+    min-height: 200px;
+    gap: 0.4rem;
+  }
+  
+  .book-inner-title { 
+    font-size: 0.9rem;
+  }
+  
+  .book-inner-desc { 
+    font-size: 0.65rem;
+  }
+  
+  .nav-btn { 
+    width: 32px; 
+    height: 32px;
+  }
+  
+  .nav-btn svg { width: 12px; height: 12px; }
+  
+  .viewer-footer { padding: 0.5rem; }
+  .page-label { font-size: 0.45rem; }
+  .page-dot { width: 3px; height: 3px; }
 }

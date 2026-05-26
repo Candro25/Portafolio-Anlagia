@@ -275,15 +275,251 @@ body::before {
 }
 
 /* ── Responsive ── */
+@media (max-width: 900px) {
+  .viewer-header {
+    padding: 1rem 1.8rem;
+  }
+  
+  .viewer-logo {
+    font-size: 1.3rem;
+  }
+  
+  .back-btn {
+    font-size: 0.65rem;
+  }
+  .back-btn svg { width: 14px; height: 14px; }
+  
+  .stage {
+    padding: 4.5rem 1.5rem 3.5rem;
+    gap: 1.5rem;
+  }
+  
+  .book-scene {
+    gap: 1.5rem;
+  }
+  
+  .page-slot { 
+    width: 260px !important; 
+    height: 368px !important; 
+  }
+  
+  .nav-btn { 
+    width: 48px; 
+    height: 48px;
+  }
+  .nav-btn svg { width: 18px; height: 18px; }
+  
+  .page-dots { gap: 5px; }
+  .page-dot { width: 5px; height: 5px; }
+  
+  .page-label { font-size: 0.6rem; }
+  .kbd-hint { font-size: 0.55rem; }
+}
+
 @media (max-width: 768px) {
-  .book { flex-direction: column; border-radius: 6px; }
+  .viewer-header {
+    padding: 0.8rem 1.2rem;
+    gap: 1rem;
+  }
+  
+  .viewer-logo {
+    font-size: 1.1rem;
+    order: 2;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .back-btn {
+    font-size: 0.6rem;
+    order: 1;
+  }
+  .back-btn svg { width: 12px; height: 12px; }
+  
+  .stage {
+    padding: 4rem 1rem 3rem;
+    gap: 1.2rem;
+  }
+  
+  .book { 
+    flex-direction: column; 
+    border-radius: 6px;
+  }
   .book::before, .book::after { display: none; }
-  .page-slot { width: 240px !important; height: 339px !important; }
+  
+  .book-scene { 
+    gap: 0.8rem;
+    flex-direction: column;
+  }
+  
+  .page-slot { 
+    width: 240px !important; 
+    height: 339px !important; 
+  }
   .page-slot.left  { border-radius: 6px 6px 0 0; }
   .page-slot.right { border-radius: 0 0 6px 6px; }
-  .book-scene { gap: 1rem; }
+  
+  .nav-btn { 
+    width: 44px; 
+    height: 44px;
+  }
+  .nav-btn svg { width: 16px; height: 16px; }
+  
+  .page-dots { gap: 4px; }
+  .page-dot { width: 4px; height: 4px; }
+  
+  .page-label { font-size: 0.55rem; }
+  .kbd-hint { font-size: 0.5rem; }
 }
+
+@media (max-width: 600px) {
+  .viewer-header {
+    padding: 0.7rem 1rem;
+  }
+  
+  .viewer-logo {
+    font-size: clamp(0.95rem, 4vw, 1rem);
+  }
+  
+  .back-btn {
+    font-size: 0.55rem;
+  }
+  
+  .stage {
+    padding: 3.5rem 0.8rem 2.8rem;
+    gap: 1rem;
+  }
+  
+  .book-scene {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .page-slot { 
+    width: 220px !important; 
+    height: 311px !important; 
+  }
+  
+  .nav-btn { 
+    width: 40px; 
+    height: 40px;
+  }
+  .nav-btn svg { width: 14px; height: 14px; }
+  
+  .page-dots { gap: 3px; }
+  .page-dot { width: 3.5px; height: 3.5px; }
+  
+  .page-label { font-size: 0.5rem; }
+  .kbd-hint { font-size: 0.45rem; display: none; }
+}
+
 @media (max-width: 480px) {
-  .page-slot { width: 200px !important; height: 283px !important; }
-  .nav-btn { width: 40px; height: 40px; }
+  .viewer-header {
+    padding: 0.6rem 0.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(21,16,10,0.98);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  
+  .viewer-logo {
+    font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+  }
+  
+  .back-btn {
+    font-size: 0.5rem;
+  }
+  .back-btn svg { width: 10px; height: 10px; }
+  
+  html, body { overflow-y: auto; }
+  
+  .stage {
+    padding: 3.2rem 0.6rem 2.5rem;
+    gap: 0.8rem;
+    min-height: 100vh;
+  }
+  
+  .book-scene {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .book {
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+  
+  .page-slot { 
+    width: 200px !important; 
+    height: 283px !important; 
+  }
+  
+  .nav-btn { 
+    width: 36px; 
+    height: 36px;
+  }
+  .nav-btn svg { width: 12px; height: 12px; }
+  .nav-btn:active:not(:disabled) { transform: scale(0.95); }
+  
+  .book-footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(21,16,10,0.7);
+    padding: 0.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+  }
+  
+  .page-dots { gap: 2px; }
+  .page-dot { width: 3px; height: 3px; }
+  
+  .page-label { font-size: 0.45rem; }
+  .kbd-hint { display: none; }
+}
+
+@media (max-width: 360px) {
+  .viewer-header {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  .viewer-logo {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+  }
+  
+  .back-btn {
+    font-size: 0.48rem;
+  }
+  .back-btn svg { width: 9px; height: 9px; }
+  
+  .stage {
+    padding: 3rem 0.5rem 2.2rem;
+    gap: 0.6rem;
+  }
+  
+  .page-slot { 
+    width: 180px !important; 
+    height: 255px !important; 
+  }
+  
+  .nav-btn { 
+    width: 32px; 
+    height: 32px;
+  }
+  .nav-btn svg { width: 10px; height: 10px; }
+  
+  .book-footer {
+    bottom: 8px;
+    padding: 0.4rem;
+  }
+  
+  .page-dots { gap: 2px; }
+  .page-dot { width: 2.5px; height: 2.5px; }
+  
+  .page-label { font-size: 0.4rem; }
 }

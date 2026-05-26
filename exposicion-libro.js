@@ -214,4 +214,34 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
   window.open(EXPOSITION_CONFIG.pdf, '_blank');
 });
 
+// ── TOUCH SUPPORT (SWIPE) ──
+let touchStartX = 0;
+let touchEndX = 0;
+const book = document.getElementById('book');
+
+book.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+book.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) nextPage();      // Swiped left → next page
+    else prevPage();                 // Swiped right → prev page
+  }
+}, false);
+
+// Touch feedback on nav buttons
+[prevBtn, nextBtn].forEach(btn => {
+  btn.addEventListener('touchstart', function() {
+    if (!this.disabled) this.style.opacity = '0.7';
+  });
+  
+  btn.addEventListener('touchend', function() {
+    this.style.opacity = '1';
+  });
+});
+
 init();

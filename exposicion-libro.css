@@ -170,3 +170,303 @@ html, body {
   .cover-editorial-layout { padding: 2rem; }
   .cover-editorial-layout h1 { font-size: 2.2rem; }
 }
+
+/* Tablets medianos (768px) */
+@media (max-width: 768px) {
+  .book-header { 
+    padding: 1.2rem 1.8rem;
+    flex-wrap: wrap;
+  }
+  
+  .book-back-btn { 
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+  }
+  .book-back-btn svg { width: 14px; height: 14px; }
+  
+  .book-header-actions { gap: 0.6rem; }
+  .book-action-btn { 
+    width: 38px; 
+    height: 38px;
+  }
+  .book-action-btn svg { width: 16px; height: 16px; }
+  
+  .nav-zone { width: 20vw; }
+  .nav-zone svg { width: 28px; height: 28px; }
+  
+  .book { 
+    width: 96vw; 
+    height: 65vh;
+    max-width: 90vw;
+  }
+  
+  .cover-editorial-layout { 
+    padding: 1.8rem;
+  }
+  
+  .cover-editorial-layout h1 { 
+    font-size: 1.8rem;
+  }
+  
+  .cover-editorial-layout h2 { 
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .editorial-line { margin-bottom: 1.5rem; }
+  
+  .cover-editorial-layout p { 
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .editorial-meta { 
+    gap: 1.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .book-footer { 
+    bottom: 20px;
+    padding: 0.6rem 1.4rem;
+  }
+  
+  .book-page-info { 
+    font-size: 0.75rem;
+  }
+  
+  .book-page-dots { gap: 6px; }
+  .book-dot { width: 4px; height: 4px; }
+}
+
+/* Móviles medianos (600px) */
+@media (max-width: 600px) {
+  .book-header { 
+    padding: 1rem 1.2rem;
+    gap: 0.8rem;
+  }
+  
+  .book-back-btn { 
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+  .book-back-btn svg { width: 12px; height: 12px; }
+  
+  .book-header-actions { gap: 0.5rem; }
+  .book-action-btn { 
+    width: 34px; 
+    height: 34px;
+  }
+  .book-action-btn svg { width: 14px; height: 14px; }
+  
+  .nav-zone { width: 25vw; }
+  .nav-zone svg { width: 24px; height: 24px; }
+  
+  .book { 
+    width: 98vw;
+    height: 60vh;
+    max-width: 95vw;
+  }
+  
+  .book::after { width: 30px; }
+  
+  .cover-editorial-layout { 
+    padding: 1.5rem;
+  }
+  
+  .cover-editorial-layout h1 { 
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  
+  .cover-editorial-layout h2 { 
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .editorial-line { 
+    margin-bottom: 1.2rem;
+    width: 40px;
+  }
+  
+  .cover-editorial-layout p { 
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+  
+  .editorial-meta { 
+    gap: 1.2rem;
+    font-size: 0.7rem;
+  }
+  
+  .book-footer { 
+    bottom: 15px;
+    padding: 0.5rem 1.2rem;
+  }
+  
+  .book-page-info { 
+    font-size: 0.7rem;
+  }
+  
+  .book-page-dots { gap: 5px; }
+  .book-dot { width: 3px; height: 3px; }
+}
+
+/* Móviles pequeños (480px) */
+@media (max-width: 480px) {
+  .book-header { 
+    padding: 0.8rem 0.8rem;
+    gap: 0.6rem;
+  }
+  
+  .book-back-btn { 
+    font-size: 0.7rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 4px;
+  }
+  .book-back-btn svg { width: 11px; height: 11px; }
+  
+  .book-header-actions { gap: 0.4rem; }
+  .book-action-btn { 
+    width: 30px; 
+    height: 30px;
+  }
+  .book-action-btn svg { width: 12px; height: 12px; }
+  
+  .nav-zone { width: 30vw; }
+  .nav-zone svg { width: 20px; height: 20px; }
+  .nav-zone-left:hover:not(:disabled) { background: linear-gradient(to right, rgba(0,0,0,0.3), transparent); }
+  .nav-zone-right:hover:not(:disabled) { background: linear-gradient(to left, rgba(0,0,0,0.3), transparent); }
+  
+  .book { 
+    width: 100vw;
+    height: 55vh;
+    max-width: 100vw;
+    border-radius: 0;
+  }
+  
+  .book::after { 
+    width: 20px;
+  }
+  
+  .cover-editorial-layout { 
+    padding: 1.2rem 1rem;
+    justify-content: flex-start;
+    padding-top: 3rem;
+  }
+  
+  .cover-editorial-layout h1 { 
+    font-size: clamp(1.3rem, 5vw, 1.5rem);
+    line-height: 1.2;
+  }
+  
+  .cover-editorial-layout h2 { 
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .editorial-line { 
+    margin-bottom: 1rem;
+    width: 35px;
+  }
+  
+  .cover-editorial-layout p { 
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+    line-height: 1.6;
+  }
+  
+  .editorial-meta { 
+    gap: 1rem;
+    font-size: 0.65rem;
+  }
+  
+  .book-footer { 
+    bottom: 12px;
+    padding: 0.4rem 1rem;
+  }
+  
+  .book-page-info { 
+    font-size: 0.65rem;
+  }
+  
+  .book-page-dots { gap: 4px; }
+  .book-dot { width: 2.5px; height: 2.5px; }
+}
+
+/* Móviles muy pequeños (360px) */
+@media (max-width: 360px) {
+  .book-header { 
+    padding: 0.6rem 0.6rem;
+    gap: 0.5rem;
+  }
+  
+  .book-back-btn { 
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .book-back-btn svg { width: 10px; height: 10px; }
+  
+  .book-action-btn { 
+    width: 28px; 
+    height: 28px;
+  }
+  .book-action-btn svg { width: 11px; height: 11px; }
+  
+  .nav-zone { width: 35vw; }
+  .nav-zone svg { width: 18px; height: 18px; }
+  
+  .book { 
+    width: 100vw;
+    height: 50vh;
+    max-width: 100vw;
+  }
+  
+  .book::after { 
+    width: 15px;
+  }
+  
+  .cover-editorial-layout { 
+    padding: 1rem 0.8rem;
+    padding-top: 2.5rem;
+  }
+  
+  .cover-editorial-layout h1 { 
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+  
+  .cover-editorial-layout h2 { 
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .editorial-line { 
+    margin-bottom: 0.8rem;
+    width: 30px;
+  }
+  
+  .cover-editorial-layout p { 
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .editorial-meta { 
+    gap: 0.8rem;
+    font-size: 0.6rem;
+  }
+  
+  .book-footer { 
+    bottom: 10px;
+    padding: 0.35rem 0.8rem;
+  }
+  
+  .book-page-info { 
+    font-size: 0.6rem;
+  }
+  
+  .book-page-dots { gap: 3px; }
+  .book-dot { width: 2px; height: 2px; }
+}

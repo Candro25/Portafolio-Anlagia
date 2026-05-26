@@ -209,6 +209,35 @@ document.addEventListener('keydown', e => {
 prevBtn.addEventListener('click', () => turnPage(-1));
 nextBtn.addEventListener('click', () => turnPage(1));
 
+// ── TOUCH SUPPORT (SWIPE) ──
+let touchStartX = 0;
+let touchEndX = 0;
+
+book.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+book.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) turnPage(1);   // Swiped left → next page
+    else turnPage(-1);             // Swiped right → prev page
+  }
+}, false);
+
+// Touch feedback on nav buttons
+[prevBtn, nextBtn].forEach(btn => {
+  btn.addEventListener('touchstart', function() {
+    if (!this.disabled) this.style.opacity = '0.6';
+  });
+  
+  btn.addEventListener('touchend', function() {
+    this.style.opacity = '1';
+  });
+});
+
 // Init
 async function init() {
   try {

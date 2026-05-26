@@ -269,6 +269,41 @@ document.addEventListener('keydown', e => {
 prevBtn.addEventListener('click', () => turnPage(-1));
 nextBtn.addEventListener('click', () => turnPage(1));
 
+// ── TOUCH SUPPORT (SWIPE) ──
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleGesture() {
+  if (touchEndX < touchStartX - 50) {
+    // Swiped left → next page
+    turnPage(1);
+  }
+  if (touchEndX > touchStartX + 50) {
+    // Swiped right → prev page
+    turnPage(-1);
+  }
+}
+
+book.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+book.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleGesture();
+}, false);
+
+// Touch support for buttons on mobile
+[prevBtn, nextBtn].forEach(btn => {
+  btn.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(0.95)';
+  });
+  
+  btn.addEventListener('touchend', function() {
+    this.style.transform = 'scale(1)';
+  });
+});
+
 function goToSpread(s) { showSpread(s); }
 
 function updateButtons() {
