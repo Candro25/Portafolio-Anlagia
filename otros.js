@@ -5,8 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlight = document.getElementById('highlight');
   const navLinks  = document.querySelectorAll('.nav-link');
   let lastScrollY = window.scrollY;
+  
+  // Detectar si es dispositivo táctil
+  const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+  };
 
   function moveHighlight(el) {
+    if (isTouchDevice()) return; // No usar highlight en dispositivos táctiles
+    
     const base   = nav.querySelector('.nav-inner').getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
     highlight.style.width   = elRect.width  + 'px';
@@ -16,10 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
     highlight.style.opacity = '1';
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => moveHighlight(link));
-  });
-  nav.addEventListener('mouseleave', () => { highlight.style.opacity = '0'; });
+  // Solo agregar listeners de mouse si NO es dispositivo táctil
+  if (!isTouchDevice()) {
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => moveHighlight(link));
+    });
+    nav.addEventListener('mouseleave', () => { highlight.style.opacity = '0'; });
+  } else {
+    // En dispositivos táctiles, usar active state
+    navLinks.forEach(link => {
+      link.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }, { passive: false });
+
+      link.addEventListener('click', (e) => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  }
 
   window.addEventListener('scroll', () => {
     const curr = window.scrollY;
@@ -38,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Espíritu ──
   const spirit = document.getElementById('navSpirit');
-  if (spirit) {
+  if (spirit && !isTouchDevice()) {
     nav.addEventListener('mouseenter', () => spirit.classList.add('spirit-awake'));
     nav.addEventListener('mouseleave', () => spirit.classList.remove('spirit-awake'));
   }
@@ -46,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Índice activo según scroll ──
   const catSections = document.querySelectorAll('.otros-cat-section');
   const indexLinks  = document.querySelectorAll('.otros-index-link, .otros-index-link-m');
+  let isClickingIndexLink = false;
 
   function updateIndexActive() {
     let current = '';
@@ -59,6 +86,37 @@ document.addEventListener('DOMContentLoaded', () => {
       if (link.dataset.target === current) link.classList.add('active');
     });
   }
+
+  // Soporte para click/touch en links del índice
+  indexLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      isClickingIndexLink = true;
+      const target = link.dataset.target;
+      const section = document.getElementById(target);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          isClickingIndexLink = false;
+          updateIndexActive();
+        }, 800);
+      }
+    });
+
+    link.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      isClickingIndexLink = true;
+      const target = link.dataset.target;
+      const section = document.getElementById(target);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          isClickingIndexLink = false;
+          updateIndexActive();
+        }, 800);
+      }
+    }, { passive: false });
+  });
 
   // ── Reveal secciones y items al scroll ──
   const sectionObs = new IntersectionObserver((entries) => {
@@ -165,21 +223,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const totalItems = galleryItems.length;
     const positions = ['position-center', 'position-right', 'position-left', 'position-hidden'];
+    
+    // Touch swipe variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
 
-    openModalBtn.addEventListener('click', () => {
+    openModalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       modal.classList.add('active');
       document.body.style.overflow = 'hidden'; 
       updateGalleryPositions();
+      addSwipeListeners();
     });
+
+    openModalBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; 
+      updateGalleryPositions();
+      addSwipeListeners();
+    }, { passive: false });
 
     const closeModal = () => {
       modal.classList.remove('active');
       document.body.style.overflow = '';
       resetTiltEffect();
+      removeSwipeListeners();
     };
 
     closeModalBtn?.addEventListener('click', closeModal);
     overlay?.addEventListener('click', closeModal);
+    
+    // Cerrar con ESC en desktop
+    const handleKeyPress = (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    };
+    
+    document.addEventListener('keydown', handleKeyPress);
 
     function updateGalleryPositions() {
       galleryItems.forEach((item, index) => {
@@ -203,15 +287,29 @@ document.addEventListener('DOMContentLoaded', () => {
       initTiltOnActive();
     }
 
-    prevBtn?.addEventListener('click', () => {
+    const handlePrevClick = () => {
       currentIndex = (currentIndex - 1 + totalItems) % totalItems;
       updateGalleryPositions();
-    });
+    };
 
-    nextBtn?.addEventListener('click', () => {
+    const handleNextClick = () => {
       currentIndex = (currentIndex + 1) % totalItems;
       updateGalleryPositions();
-    });
+    };
+
+    prevBtn?.addEventListener('click', handlePrevClick);
+    nextBtn?.addEventListener('click', handleNextClick);
+    
+    // Touch support para botones
+    prevBtn?.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      handlePrevClick();
+    }, { passive: false });
+    
+    nextBtn?.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      handleNextClick();
+    }, { passive: false });
 
     galleryItems.forEach((item) => {
       item.addEventListener('click', () => {
@@ -220,11 +318,69 @@ document.addEventListener('DOMContentLoaded', () => {
           updateGalleryPositions();
         }
       });
+      
+      item.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        if (!item.classList.contains('position-center') && !item.classList.contains('position-hidden')) {
+          currentIndex = parseInt(item.getAttribute('data-index'));
+          updateGalleryPositions();
+        }
+      }, { passive: false });
     });
+
+    function handleSwipe() {
+      const xDiff = touchEndX - touchStartX;
+      const yDiff = Math.abs(touchEndY - touchStartY);
+      
+      // Detectar swipe solo si es principalmente horizontal
+      if (Math.abs(xDiff) > 50 && yDiff < 100) {
+        if (xDiff > 0) {
+          // Swipe derecha = anterior
+          handlePrevClick();
+        } else {
+          // Swipe izquierda = siguiente
+          handleNextClick();
+        }
+      }
+    }
+
+    function addSwipeListeners() {
+      const container = modal.querySelector('.gallery-3d-container');
+      if (!container) return;
+      
+      container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }, { passive: true });
+    }
+
+    function removeSwipeListeners() {
+      const container = modal.querySelector('.gallery-3d-container');
+      if (!container) return;
+      // Los event listeners se removerán automáticamente cuando se reconstruya
+    }
 
     function initTiltOnActive() {
       const activeCard = modal.querySelector('.gallery-3d-item.position-center .notebook-card');
       if (!activeCard) return;
+
+      // Deshabilitar tilt en dispositivos táctiles (mobile/tablet)
+      const isTouchDevice = () => {
+        return (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0));
+      };
+
+      if (isTouchDevice()) {
+        // En dispositivos táctiles, no usar mousemove
+        return;
+      }
 
       activeCard.addEventListener('mousemove', (e) => {
         const rect = activeCard.getBoundingClientRect();
