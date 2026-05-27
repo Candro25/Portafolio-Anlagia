@@ -364,14 +364,12 @@ section{
 
 /* En pantallas medianas la imagen baja un poco en altura */
 @media(max-width:768px){
-  .prenda-img{
-    min-height:clamp(260px,55vw,420px);
-  }
+  .prenda-img{ min-height:clamp(260px,55vw,420px); }
+  .prenda-img img{ object-fit:contain; }
 }
 @media(max-width:480px){
-  .prenda-img{
-    min-height:clamp(220px,60vw,320px);
-  }
+  .prenda-img{ min-height:clamp(220px,60vw,320px); }
+  .prenda-img img{ object-fit:contain; }
 }
 
 .prenda-info{
