@@ -717,6 +717,7 @@ section{
   .archivo-card-img{
     aspect-ratio:3/4;
   }
+  .archivo-card-img img{ object-fit:contain; }
   .archivo-card-body{
     padding:16px 20px 24px;
   }
@@ -725,6 +726,7 @@ section{
   .archivo-card-img{
     aspect-ratio:3/2;
   }
+  .archivo-card-img img{ object-fit:contain; }
   .archivo-card-body{
     padding:14px 16px 20px;
   }
