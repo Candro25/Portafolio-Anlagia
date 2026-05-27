@@ -89,6 +89,24 @@ body{
   font-style:italic;
   color:var(--red-deep);
 }
+
+/* ─── HERO LOGO ─── */
+.hero-logo{
+  margin-bottom:clamp(32px,4vw,48px);
+}
+.hero-logo img{
+  width:clamp(120px,20vw,500px);
+  height:auto;
+  display:block;
+  margin:0 auto;
+  filter:brightness(1) contrast(1.05);
+  mix-blend-mode:multiply;
+  transition:transform .4s ease, filter .4s ease, mix-blend-mode .4s ease;
+}
+.hero-logo img:hover{
+  transform:scale(1.02);
+}
+
 .hero-sub{
   font-size:clamp(16px,1.8vw,20px);
   font-weight:400;
@@ -822,6 +840,10 @@ section{
     font-size: clamp(48px, 12vw, 80px);
   }
   
+  .hero-logo img {
+    width: clamp(90px, 17vw, 200px);
+  }
+  
   .hero-sub {
     font-size: clamp(14px, 1.5vw, 16px);
     max-width: 100%;
@@ -1040,6 +1062,14 @@ section{
   .hero-title {
     font-size: clamp(40px, 11vw, 60px);
     margin-bottom: 20px;
+  }
+  
+  .hero-logo {
+    margin-bottom: 20px;
+  }
+  
+  .hero-logo img {
+    width: clamp(60px, 11vw, 100px);
   }
   
   .hero-sub {
@@ -1297,6 +1327,14 @@ section{
   .hero-title {
     font-size: clamp(36px, 10vw, 52px);
     margin-bottom: 16px;
+  }
+  
+  .hero-logo {
+    margin-bottom: 16px;
+  }
+  
+  .hero-logo img {
+    width: clamp(50px, 10vw, 80px);
   }
   
   .hero-tag {
