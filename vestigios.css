@@ -841,7 +841,7 @@ section{
   }
   
   .hero-logo img {
-    width: clamp(90px, 17vw, 200px);
+    width: clamp(120px, 20vw, 500px);
   }
   
   .hero-sub {
