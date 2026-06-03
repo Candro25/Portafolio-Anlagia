@@ -63,14 +63,16 @@
 <section class="hero" id="hero">
   <!-- Video fondo completo -->
   <div class="hero-video-bg">
-    <iframe
+    <video
       id="heroVideo"
       class="hero-video"
-      src="https://drive.google.com/file/d/18kvoEWBOLrv9cepRDe_zoU-C2L_MgVG3/preview"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="videos/HERO_PORTAFOLIO_ANGLAIA.mp4" type="video/mp4">
+    </video>
     <div class="hero-veil"></div>
   </div>
   <!-- Contenido -->
@@ -80,13 +82,13 @@
       <h1 class="hero-title">
         <span class="hero-line"><span class="hero-line-inner">Transformación</span></span>
         <span class="hero-line"><span class="hero-line-inner color-accent">Y Conexión</span></span>
-        <!-- <span class="hero-line"><span class="hero-line-inner">Conexión</span></span> -->
       </h1>
       <a href="#portafolio" class="hero-cta-btn">
         Ver trabajo <span class="hero-cta-arrow">↓</span>
       </a>
     </div>
   </div>
+</section>
 
   <!-- Control de audio -->
   <button class="audio-btn" id="audioBtn" aria-label="Activar sonido">
